@@ -44,6 +44,27 @@ provider registration rejects compositions that cannot fit rather than truncatin
 identities. A malformed or duplicate entry invalidates the complete custom-switch
 field. Existing whole-link size limits still apply.
 
+## The Deck — October 11, 2026
+
+`/deck` serves a static dashboard (`public/deck/`) on the development and
+preview servers: a mission catalog whose views resolve to share links through
+`POST /api/deck/view-urls`, the globe framed in embed mode from the app's own
+origin (the standalone server now defaults `GEV_EMBED_FRAME_ANCESTORS` to
+`'self'`; other framers remain an opt-in), an analyst chat, saved packs,
+the live tool list (`GET /api/deck/tools`) and a configuration report by key
+name (`GET /api/deck/status`). The chat (`POST /api/deck/chat`) runs one turn
+over the Claude Messages API with the tool catalog (`src/deck/chat.js`): the
+MCP surface plus place search, routing, weather, wind, radio, bike share,
+transit and the regional brief, minus the panel loader; tool calls run
+through the catalog in parallel for up to eight rounds; the answer is split
+into prose and `gev-pack` JSON blocks, which are bounded, resolved to links
+and rendered as Markdown (`src/deck/packs.js`). Images tools return travel
+to the page as attachments. `POST /api/deck/handoff` forwards a pack to the
+one configured webhook. Chat and hand-off are same-site gated and throttled
+(`GEV_RATELIMIT_DECK_PER_MIN`). The page is installable (manifest, service
+worker caching only its own files). See [DECK.md](DECK.md) and
+[DEPLOY-VPS.md](DEPLOY-VPS.md).
+
 ## God's Eye View in conversations — October 2, 2026
 
 Tool answers that can be shown in God's Eye View include a view: camera, layers,

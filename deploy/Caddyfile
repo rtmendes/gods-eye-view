@@ -1,0 +1,21 @@
+# TLS, one login, and the header hygiene the app's same-site gate needs.
+# Replace the hostname; set GEV_BASIC_AUTH_HASH from `caddy hash-password`.
+globe.example.com {
+	encode zstd gzip
+
+	basic_auth {
+		operator {env.GEV_BASIC_AUTH_HASH}
+	}
+
+	reverse_proxy app:4173 {
+		# The app's cost-bearing routes refuse requests that carry reverse-
+		# proxy headers (they cannot tell a proxied request from a forged
+		# one). Caddy sets these by default; remove them.
+		header_up -X-Forwarded-For
+		header_up -X-Forwarded-Proto
+		header_up -X-Forwarded-Host
+		header_up -Forwarded
+		header_up -Via
+		header_up -X-Real-IP
+	}
+}

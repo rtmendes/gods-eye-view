@@ -1,0 +1,35 @@
+# The app behind Caddy, for a VPS. Secrets come from .env.production (git-
+# ignored) or the vault loader that starts compose. See docs/DEPLOY-VPS.md.
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env.production
+    environment:
+      HOST: 0.0.0.0
+      PORT: '4173'
+    expose:
+      - '4173'
+    volumes:
+      - gev-cache:/app/.gev-cache
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      GEV_BASIC_AUTH_HASH: ${GEV_BASIC_AUTH_HASH:?set GEV_BASIC_AUTH_HASH (caddy hash-password)}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - app
+
+volumes:
+  gev-cache:
+  caddy-data:
+  caddy-config:

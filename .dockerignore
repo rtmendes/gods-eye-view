@@ -1,0 +1,14 @@
+node_modules
+dist
+.git
+.env
+.env.*
+!.env.example
+.gev-logs
+.gev-cache
+qa-artifacts
+screenshots
+qa-shots
+output
+docs/media
+pinokio/ENVIRONMENT

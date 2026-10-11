@@ -32,7 +32,7 @@ _“pretty cool”_ — [Brendan Eich](https://x.com/BrendanEich/status/20945920
 
 <div align="center">
 
-**[Quick Start](#-quick-start) · [First Five Minutes](#-the-first-five-minutes) · [Talk to It](#-talk-to-it) · [What's Live](#-whats-on-the-globe) · [Under the Hood](#-under-the-hood) · [Keys & Costs](#-api-keys) · [Contributing](CONTRIBUTING.md)**
+**[Quick Start](#-quick-start) · [First Five Minutes](#-the-first-five-minutes) · [The Deck](#-the-deck) · [Talk to It](#-talk-to-it) · [What's Live](#-whats-on-the-globe) · [Under the Hood](#-under-the-hood) · [Keys & Costs](#-api-keys) · [Contributing](CONTRIBUTING.md)**
 
 </div>
 
@@ -214,6 +214,16 @@ Choose a first-run mission, or try these in order. The GIFs show Google Photorea
 8. **Come home.** Hit **Reset Globe** — or just say _"zoom out to a globe view."_
 
 **Keyboard:** `1`–`7` visual styles · `H` HUD · `D` detection · `C` cockpit · `` ` `` frame rate · `Esc` out. Trackpad pinch zooms the globe.
+
+---
+
+## 🧭 The Deck
+
+> Every mission on one page, the globe framed inside it, and an analyst that reads the feeds and writes publishing packs. Works in any browser, installs on a phone.
+
+Open **`/deck`** on any running server. **Missions** lists thirty use cases grouped like the app's layers, each with a view to load, a share link to open, and a question for the analyst. **Globe** frames the app in embed mode and takes new views without reloading. **Analyst** is a chat over the Claude API with the same tool catalog the MCP server offers: it answers from live data, shows what it called, and ends with a **publishing pack** when you ask for material to publish: headline, angle, tables from the feeds, and the exact views to capture. **Publish** keeps the packs you save; copy one as Markdown, download it as JSON, or send it to the writing tool or agent you configured. **Capabilities** and **Setup** show what this server can do and which keys it has, by name.
+
+The analyst needs an `ANTHROPIC_API_KEY` on the server; the rest of the page works without one. Hand-off is one webhook (`GEV_DECK_HANDOFF_WEBHOOK_URL`). Everything, including hosting it for every device behind a login, is in [docs/DECK.md](docs/DECK.md) and [docs/DEPLOY-VPS.md](docs/DEPLOY-VPS.md).
 
 ---
 
