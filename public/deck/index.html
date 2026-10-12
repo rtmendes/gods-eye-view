@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>God's Eye View Deck</title>
+  <meta name="description" content="Mission dashboard, embedded globe and analyst chat for God's Eye View." />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0b0d12" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="GEV Deck" />
+  <link rel="manifest" href="/deck/manifest.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href="/deck/icon.svg" />
+  <link rel="apple-touch-icon" href="/deck/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/deck/deck.css" />
+  <script type="module" src="/deck/deck.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-grid" viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 12h17M12 3.5c3 3 3 14 0 17M12 3.5c-3 3-3 14 0 17" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 3.5V16H6.5A2.5 2.5 0 0 1 4 13.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 13h6l-1 8 9-11h-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 4l16 8-16 8 3-8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5zM5 19.5A1.5 1.5 0 0 0 6.5 21H19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mark" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3.2" fill="currentColor"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <header class="topbar">
+    <a class="brand" href="#/missions">
+      <svg class="icon brand-mark"><use href="#i-mark"/></svg>
+      <span class="brand-name">God's Eye View</span>
+      <span class="brand-sub">Deck</span>
+    </a>
+    <div class="topbar-status" id="status-chips" aria-live="polite"></div>
+    <div class="topbar-actions">
+      <button type="button" class="button ghost" id="install-button" hidden>Install app</button>
+      <a class="button" id="open-globe" href="/" target="_blank" rel="noopener">
+        Open globe
+        <svg class="icon"><use href="#i-external"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <nav class="sidenav" aria-label="Sections">
+    <a href="#/missions" data-nav="missions"><svg class="icon"><use href="#i-grid"/></svg><span>Missions</span></a>
+    <a href="#/globe" data-nav="globe"><svg class="icon"><use href="#i-globe"/></svg><span>Globe</span></a>
+    <a href="#/analyst" data-nav="analyst"><svg class="icon"><use href="#i-chat"/></svg><span>Analyst</span></a>
+    <a href="#/capabilities" data-nav="capabilities"><svg class="icon"><use href="#i-bolt"/></svg><span>Capabilities</span></a>
+    <a href="#/publish" data-nav="publish"><svg class="icon"><use href="#i-book"/></svg><span>Publish</span></a>
+    <a href="#/setup" data-nav="setup"><svg class="icon"><use href="#i-gear"/></svg><span>Setup</span></a>
+    <div class="sidenav-foot">
+      <span id="version-label" class="mono muted"></span>
+      <a class="muted" href="/docs/DECK.md" hidden>Docs</a>
+    </div>
+  </nav>
+
+  <main id="main" tabindex="-1">
+    <section class="pane" data-pane="missions">
+      <header class="pane-head">
+        <div>
+          <h1>Missions</h1>
+          <p class="lede">Every use case the globe supports, with a view that opens it and a question for the analyst.</p>
+        </div>
+        <div class="chip-row" id="mission-filters" role="tablist" aria-label="Filter missions"></div>
+      </header>
+      <div id="mission-groups"></div>
+    </section>
+
+    <section class="pane" data-pane="globe" hidden>
+      <header class="pane-head">
+        <div>
+          <h1>Globe</h1>
+          <p class="lede" id="globe-caption">Load a mission or a pack view; the globe follows without reloading.</p>
+        </div>
+        <div class="toolbar">
+          <label class="field">
+            <span>Style</span>
+            <select id="globe-style">
+              <option value="normal">Normal</option>
+              <option value="retro">CRT</option>
+              <option value="surveillance">Night vision</option>
+              <option value="thermal">FLIR</option>
+              <option value="anime">Anime</option>
+              <option value="noir">Noir</option>
+              <option value="snow">Snow</option>
+            </select>
+          </label>
+          <a class="button ghost" id="globe-open" href="/" target="_blank" rel="noopener">Open this view <svg class="icon"><use href="#i-external"/></svg></a>
+        </div>
+      </header>
+      <div class="globe-frame" id="globe-frame">
+        <div class="globe-placeholder" id="globe-placeholder">
+          <p>Pick a mission to load the globe here.</p>
+        </div>
+      </div>
+      <p class="hint" id="globe-hint" hidden></p>
+    </section>
+
+    <section class="pane" data-pane="analyst" hidden>
+      <div class="analyst">
+        <div class="chat-column">
+          <header class="pane-head compact">
+            <div>
+              <h1>Analyst</h1>
+              <p class="lede">Asks the live feeds, suggests angles, and writes publishing packs for Elite Writer and the Chief of Staff.</p>
+            </div>
+            <button type="button" class="button ghost" id="chat-clear">New conversation</button>
+          </header>
+          <div class="chat-log" id="chat-log" aria-live="polite"></div>
+          <form class="composer" id="composer">
+            <textarea id="composer-input" rows="2" placeholder="Ask about anywhere on Earth, or ask for a publishing pack…" aria-label="Message the analyst" required></textarea>
+            <button type="submit" class="button primary" id="composer-send" aria-label="Send">
+              <svg class="icon"><use href="#i-send"/></svg>
+            </button>
+          </form>
+          <p class="hint" id="chat-hint" hidden></p>
+        </div>
+        <aside class="chat-side">
+          <h2>Start from</h2>
+          <div class="quick-prompts" id="quick-prompts"></div>
+          <h2>How packs work</h2>
+          <p class="muted small">Ask for material to publish and the answer ends with a pack: a headline, the angle, tables from the feeds and views to capture. Save it, copy it as Markdown, or send it straight to your writing tool.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="pane" data-pane="capabilities" hidden>
+      <header class="pane-head">
+        <div>
+          <h1>Capabilities</h1>
+          <p class="lede">What the analyst, an MCP client and the voice agent can do with this server.</p>
+        </div>
+      </header>
+      <h2>Analyst and MCP tools</h2>
+      <p class="muted small">Read live from this server. The same tools serve Claude Desktop, Claude Code and Codex over MCP.</p>
+      <div class="tool-list" id="tool-list"></div>
+      <h2>Voice actions</h2>
+      <p class="muted small">Spoken inside the globe with an OpenAI key. Each is also an action the analyst's views can describe.</p>
+      <div class="chip-row mono" id="voice-actions"></div>
+      <h2>Keyboard</h2>
+      <div class="shortcuts" id="shortcuts"></div>
+      <h2>Connect an agent</h2>
+      <p class="muted small">Give your Chief of Staff, Claude Code or Claude Desktop the globe's tools over the Model Context Protocol.</p>
+      <pre class="code" id="mcp-snippet"></pre>
+    </section>
+
+    <section class="pane" data-pane="publish" hidden>
+      <header class="pane-head">
+        <div>
+          <h1>Publish</h1>
+          <p class="lede">Packs you saved from the analyst, ready for Elite Writer or the Chief of Staff.</p>
+        </div>
+        <div class="toolbar">
+          <button type="button" class="button ghost" id="packs-export">Export all</button>
+          <button type="button" class="button ghost danger" id="packs-clear">Clear</button>
+        </div>
+      </header>
+      <div id="pack-shelf"></div>
+    </section>
+
+    <section class="pane" data-pane="setup" hidden>
+      <header class="pane-head">
+        <div>
+          <h1>Setup</h1>
+          <p class="lede">What this server has configured. Keys are named, never shown.</p>
+        </div>
+      </header>
+      <div class="status-grid" id="setup-status"></div>
+      <h2>Providers</h2>
+      <div class="provider-list" id="provider-list"></div>
+      <h2>Where keys go</h2>
+      <p class="muted small">Local: the <strong>POWER UP</strong> chip in the globe, or <code>.env</code>. Hosted: the environment the server starts with, loaded from the vault. See <code>docs/DECK.md</code> and <code>docs/DEPLOY-VPS.md</code> in the repository.</p>
+    </section>
+  </main>
+
+  <nav class="tabbar" aria-label="Sections">
+    <a href="#/missions" data-nav="missions"><svg class="icon"><use href="#i-grid"/></svg><span>Missions</span></a>
+    <a href="#/globe" data-nav="globe"><svg class="icon"><use href="#i-globe"/></svg><span>Globe</span></a>
+    <a href="#/analyst" data-nav="analyst"><svg class="icon"><use href="#i-chat"/></svg><span>Analyst</span></a>
+    <a href="#/publish" data-nav="publish"><svg class="icon"><use href="#i-book"/></svg><span>Publish</span></a>
+    <a href="#/setup" data-nav="setup"><svg class="icon"><use href="#i-gear"/></svg><span>Setup</span></a>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

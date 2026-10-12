@@ -1,0 +1,23 @@
+{
+  "name": "God's Eye View Deck",
+  "short_name": "GEV Deck",
+  "description": "Mission dashboard, embedded globe and analyst chat for God's Eye View.",
+  "id": "/deck/",
+  "start_url": "/deck/",
+  "scope": "/deck/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b0d12",
+  "theme_color": "#0b0d12",
+  "icons": [
+    { "src": "/deck/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/deck/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/deck/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/deck/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Missions", "url": "/deck/#/missions" },
+    { "name": "Analyst", "url": "/deck/#/analyst" },
+    { "name": "Globe", "url": "/deck/#/globe" }
+  ]
+}
