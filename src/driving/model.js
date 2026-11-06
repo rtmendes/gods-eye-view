@@ -154,6 +154,20 @@ export function normalizeRecord(r) {
       r.speedLimitMph <= 85
         ? r.speedLimitMph
         : null,
+    standardSpeedLimitMph:
+      Number.isFinite(r.standardSpeedLimitMph) &&
+      r.standardSpeedLimitMph > 0 &&
+      r.standardSpeedLimitMph <= 85
+        ? r.standardSpeedLimitMph
+        : null,
+    milepostBegin:
+      Number.isFinite(r.milepostBegin) && r.milepostBegin >= 0
+        ? r.milepostBegin
+        : null,
+    milepostEnd:
+      Number.isFinite(r.milepostEnd) && r.milepostEnd >= 0
+        ? r.milepostEnd
+        : null,
     sourceId: text(r.sourceId, 80),
     sourceUrl: safeUrl(r.sourceUrl),
     license: text(r.license, 300),

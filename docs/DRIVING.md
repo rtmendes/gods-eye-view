@@ -5,6 +5,27 @@ paid API and does not require a Google, TomTom or OpenAI key. It uses the
 existing OSRM route proxy, device GPS and device speech synthesis. The existing
 globe gains an **I-80 / I-95 Enforcement** layer using the same database.
 
+### Map markers and refresh
+
+The map and globe refresh their database markers every minute while enabled.
+Drive also has **Refresh markers** and an automatic-refresh toggle. The map-sync
+time and latest successful source-import time are displayed separately: polling
+the database does not turn a weekly schedule into live camera telemetry. Use the
+hourly importer below to keep upstream publications current.
+
+- **W / triangle:** a reference point on a published work-zone segment. The
+  underlying segment remains visible. This pin is not an exact camera position.
+- **C / circle:** a mapped enforcement-camera position when actual point
+  geometry is available.
+- **T / circle:** traffic monitoring; it does not generate violation alerts.
+- **Purple:** a recent, reviewed observation. Its observation and expiry times
+  appear in the popup. Expired observations disappear from the current view.
+
+Popups include source speeds, highway mileposts when supplied, travel direction,
+retrieval and observation dates, and evidence links. Locations without geometry
+remain in the inventory with no guessed pin. The published sources currently do
+not establish continuous live camera positions or whether a camera is operating.
+
 ## Run
 
 Use the supported Node version in package.json (Node 24.14+ or 26), then:

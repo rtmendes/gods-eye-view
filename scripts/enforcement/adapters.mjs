@@ -52,6 +52,9 @@ export function normalizePa(rows, features, now) {
         travelBearings:
           heading[r.direction] == null ? [] : [heading[r.direction]],
         speedLimitMph: r.workZoneSpeedLimit,
+        standardSpeedLimitMph: r.standardSpeedLimit,
+        milepostBegin: r.milepostBegin,
+        milepostEnd: r.milepostEnd,
         retrievedAt: now,
         verification: 'official',
         sourceUrl: PA_PAGE,

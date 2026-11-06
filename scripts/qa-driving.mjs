@@ -75,6 +75,17 @@ try {
   await page.waitForFunction(() =>
     document.getElementById('inventory-count').textContent.includes('/'),
   );
+  await page.waitForFunction(() =>
+    document.getElementById('data-sync').textContent.includes('Map synced'),
+  );
+  await page.click('#refresh-data');
+  await page.waitForFunction(
+    () =>
+      !document.getElementById('refresh-data').disabled &&
+      document
+        .getElementById('data-sync')
+        .textContent.includes('source import'),
+  );
   await page.type('#origin', '40.892, -74.110');
   await page.type('#destination', '40.882, -74.075');
   await page.click('#plan');

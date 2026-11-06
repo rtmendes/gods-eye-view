@@ -1,5 +1,6 @@
 import * as Cesium from 'cesium';
 import { drawEnforcement } from './map.js';
+import { temporalStatus } from './model.js';
 export function createEnforcementLayer({ source }) {
   let viewer,
     data,
@@ -13,7 +14,7 @@ export function createEnforcementLayer({ source }) {
     name: 'I-80 / I-95 Enforcement',
     icon: '🚗',
     source: 'NYSDOT · PennDOT · reviewed reports',
-    updateInterval: 300000,
+    updateInterval: 60000,
     init(v) {
       viewer = v;
       data = new Cesium.CustomDataSource('corridor-enforcement');
@@ -41,7 +42,10 @@ export function createEnforcementLayer({ source }) {
         drawEnforcement(
           data,
           snapshot.records.filter(
-            (r) => !['completed', 'paused'].includes(r.status),
+            (r) =>
+              !['completed', 'paused', 'expired', 'unknown'].includes(
+                temporalStatus(r),
+              ),
           ),
         );
         count = snapshot.records.length;

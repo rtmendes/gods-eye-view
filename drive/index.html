@@ -80,6 +80,19 @@
           <summary>
             Enforcement inventory <span id="inventory-count">—</span>
           </summary>
+          <div class="data-sync-controls">
+            <button id="refresh-data" type="button">Refresh markers</button>
+            <label
+              ><input id="auto-refresh" type="checkbox" checked /> Update every
+              minute</label
+            >
+          </div>
+          <p id="data-sync" class="fine" role="status">Loading marker data…</p>
+          <p class="fine">
+            W = published work-zone reference; C = mapped camera; T = traffic
+            monitor. Purple marks a recent observation. Camera activation is
+            unconfirmed. Source imports run separately from map refreshes.
+          </p>
           <div class="filters">
             <label
               >State<select id="state-filter">

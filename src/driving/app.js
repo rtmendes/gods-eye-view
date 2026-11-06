@@ -39,6 +39,7 @@ let lastFix = null,
   selectedDestination = null,
   nextRefresh = null;
 let planVersion = 0;
+let refreshingInventory = false;
 let viewer, enforcementMap, routeMap, driver;
 function speak(text) {
   if (!$('voice').checked || !('speechSynthesis' in window) || document.hidden)
@@ -284,6 +285,13 @@ function renderInventory() {
           `Valid until ${new Date(r.validTo || r.expiresAt).toLocaleString()}`,
         ),
       );
+    if (r.milepostBegin != null && r.milepostEnd != null)
+      row.append(
+        element(
+          'p',
+          `Highway mileposts ${r.milepostBegin}–${r.milepostEnd}${r.standardSpeedLimitMph ? ` · source standard ${r.standardSpeedLimitMph} mph` : ''}`,
+        ),
+      );
     if (r.geometry && viewer) {
       const button = element('button', 'View on map');
       button.onclick = () => {
@@ -328,18 +336,40 @@ function renderInventory() {
     );
 }
 async function refreshInventory() {
+  if (refreshingInventory || destroyed) return;
+  refreshingInventory = true;
+  $('refresh-data').disabled = true;
+  $('data-sync').textContent = 'Refreshing database markers…';
   try {
     snapshot = await routeSource.getSnapshot({
       signal: AbortSignal.timeout(15000),
     });
+    if (destroyed) return;
     session.setRecords(snapshot.records);
     renderInventory();
+    const imports = snapshot.sources
+      .map((s) => Date.parse(s.lastSuccess))
+      .filter(Number.isFinite);
+    const imported = imports.length
+      ? new Date(Math.max(...imports)).toLocaleString()
+      : 'no successful import';
+    const synced = new Date().toLocaleTimeString();
+    $('data-sync').textContent =
+      `Map synced ${synced}. Latest successful source import: ${imported}. Camera operation unconfirmed.`;
   } catch (e) {
+    if (destroyed) return;
+    renderInventory(); // Expire observations even when the backend is unavailable.
+    $('data-sync').textContent =
+      'Refresh failed. Showing previously loaded data; check source dates.';
     message(
       `Camera data unavailable: ${e.message}. Previously loaded locations may be stale.`,
     );
+  } finally {
+    refreshingInventory = false;
+    if (!destroyed) $('refresh-data').disabled = false;
   }
 }
+$('refresh-data').onclick = refreshInventory;
 async function lookup(text) {
   const match = /^\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*$/.exec(text);
   if (match) {
@@ -626,8 +656,10 @@ const clock = setInterval(() => {
 initializeMap();
 refreshInventory();
 nextRefresh = setInterval(() => {
-  if (!document.hidden && !destroyed) refreshInventory();
-}, 300000);
+  if (document.hidden || destroyed) return;
+  if ($('auto-refresh').checked) refreshInventory();
+  else renderInventory(); // Expired observations disappear even with refresh paused.
+}, 60000);
 window.addEventListener(
   'pagehide',
   () => {

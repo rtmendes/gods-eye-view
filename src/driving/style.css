@@ -496,3 +496,26 @@ footer {
     top: auto;
   }
 }
+.data-sync-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.data-sync-controls label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 11px;
+}
+.data-sync-controls input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+#refresh-data {
+  font-size: 12px;
+  padding: 8px 10px;
+}

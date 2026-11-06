@@ -82,7 +82,7 @@ try {
       )
         throw new Error('Unexpected PennDOT GIS configuration');
       const query =
-        'query { locations { objectId locationCode status countyName stateRouteNumber direction description standardSpeedLimit workZoneSpeedLimit } }';
+        'query { locations { objectId locationCode status countyName stateRouteNumber direction description standardSpeedLimit workZoneSpeedLimit milepostBegin milepostEnd } }';
       const rows = await json(
         `${base}graphql?${new URLSearchParams({ query })}`,
       );
