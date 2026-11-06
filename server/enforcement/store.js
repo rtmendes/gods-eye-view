@@ -2,6 +2,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { mkdirSync, readFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { randomUUID } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
 import {
   normalizeRecord,
   STATES,
@@ -9,10 +10,9 @@ import {
   TYPES,
 } from '../../src/driving/model.js';
 
-export const DEFAULT_DB = new URL(
-  '../../.gev-data/enforcement.sqlite',
-  import.meta.url,
-).pathname;
+export const DEFAULT_DB = fileURLToPath(
+  new URL('../../.gev-data/enforcement.sqlite', import.meta.url),
+);
 export function openStore(path = process.env.GEV_ENFORCEMENT_DB || DEFAULT_DB) {
   if (path !== ':memory:') mkdirSync(dirname(path), { recursive: true });
   const db = new DatabaseSync(path);

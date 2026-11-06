@@ -1,4 +1,5 @@
 import { spawn } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 // One sequential import per hour. The supervisor owns this process's lifetime.
 let child,
   timer,
@@ -9,7 +10,7 @@ function refresh() {
     process.execPath,
     [
       '--use-env-proxy',
-      new URL('./refresh.mjs', import.meta.url).pathname,
+      fileURLToPath(new URL('./refresh.mjs', import.meta.url)),
       ...process.argv.slice(2),
     ],
     { stdio: 'inherit' },
