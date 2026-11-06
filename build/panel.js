@@ -26,6 +26,8 @@ export function panelBuildConfig(config) {
       cssCodeSplit: false,
       rollupOptions: {
         ...config.build?.rollupOptions,
+        // The standalone app also builds /drive/; the embedded panel stays a single entry.
+        input: 'index.html',
         output: { inlineDynamicImports: true },
       },
     },

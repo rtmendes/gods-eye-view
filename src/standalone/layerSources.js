@@ -1,4 +1,5 @@
 import { createDirectionsSource } from '../layers/directions/source.js';
+import { createEnforcementSource } from '../driving/source.js';
 import { createRecentImagerySource } from '../layers/recentImagery/source.js';
 import { createOpenFreeMapSource } from '../sources/openFreeMap.js';
 import {
@@ -31,6 +32,7 @@ export function createStandaloneLayerSources(overrides = {}) {
   const defaults = {
     ...createReferenceSources(),
     directions: createDirectionsSource(),
+    enforcement: createEnforcementSource(),
     'recent-imagery': createRecentImagerySource(),
     flights: createFlightSource(),
     military: createMilitarySource(),

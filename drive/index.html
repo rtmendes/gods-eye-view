@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0b1520" />
+    <link rel="icon" href="/logo.svg" />
+    <title>Drive · God's Eye View</title>
+  </head>
+  <body>
+    <header class="drive-header">
+      <a class="brand" href="/"
+        >◉ <span>GOD’S EYE VIEW <small>DRIVE</small></span></a
+      ><span class="scope">I-80 / I-95 · NY, NJ, PA</span
+      ><a href="/">Explore globe ↗</a>
+    </header>
+    <main>
+      <section id="map" aria-label="Highway enforcement map"></section>
+      <aside
+        class="planner"
+        aria-label="Route planning and enforcement inventory"
+      >
+        <div class="eyebrow">YOUR CORRIDOR, IN CONTEXT</div>
+        <h1>A clearer road ahead.</h1>
+        <p class="intro">
+          Public enforcement locations and work-zone schedules, with their
+          sources in view.
+        </p>
+        <form id="route-form">
+          <label for="origin">Starting point</label>
+          <div class="input-row">
+            <input
+              id="origin"
+              placeholder="City, address, or latitude, longitude"
+              maxlength="200"
+              autocomplete="off"
+            /><button
+              id="locate"
+              type="button"
+              title="Use current GPS location"
+            >
+              Use GPS
+            </button>
+          </div>
+          <label for="destination">Destination</label
+          ><input
+            id="destination"
+            required
+            placeholder="Where are you heading?"
+            maxlength="200"
+            autocomplete="off"
+          />
+          <button class="primary" id="plan" type="submit">
+            Find driving route <span>→</span>
+          </button>
+        </form>
+        <div id="route-summary" class="route-summary" hidden></div>
+        <div class="actions">
+          <button id="start" class="primary" disabled>Start driving</button
+          ><button id="replay" type="button">Try replay</button
+          ><button id="stop" type="button" hidden>Stop</button>
+        </div>
+        <div class="preferences">
+          <label><input id="voice" type="checkbox" /> Spoken guidance</label
+          ><label
+            ><input id="follow" type="checkbox" checked /> Follow map</label
+          >
+        </div>
+        <p class="fine">
+          Foreground navigation · ETA excludes live traffic. GPS stays on your
+          device except coordinates sent for routing. Keep this page visible.
+        </p>
+        <div id="message" role="status" aria-live="polite">
+          Plan a route, or try a replay without GPS.
+        </div>
+        <details id="inventory" open>
+          <summary>
+            Enforcement inventory <span id="inventory-count">—</span>
+          </summary>
+          <div class="filters">
+            <label
+              >State<select id="state-filter">
+                <option value="">All states</option>
+                <option>NY</option>
+                <option>NJ</option>
+                <option>PA</option>
+              </select></label
+            ><label
+              >Highway<select id="route-filter">
+                <option value="">Both routes</option>
+                <option>I-80</option>
+                <option>I-95</option>
+              </select></label
+            ><label
+              >Type<select id="type-filter">
+                <option value="">All types</option>
+                <option value="work-zone">Work zone</option>
+                <option value="speed">Speed</option>
+                <option value="red-light">Red light</option>
+                <option value="speed-and-red-light">Speed + red light</option>
+                <option value="bus-lane">Bus lane</option>
+                <option value="toll">Toll</option>
+                <option value="monitoring">Monitoring</option>
+              </select></label
+            ><label
+              >Status<select id="status-filter">
+                <option value="">Current / upcoming</option>
+                <option value="all">Include history</option>
+                <option value="active-project">Active projects</option>
+                <option value="scheduled">Scheduled</option>
+                <option value="fixed">Fixed</option>
+                <option value="observed">Recent observations</option>
+                <option value="stale">Stale / unverified</option>
+              </select></label
+            >
+          </div>
+          <div class="legend">
+            <span class="dot amber"></span> Work-zone area
+            <span class="dot teal"></span> Fixed camera
+            <span class="dot purple"></span> Observation
+          </div>
+          <p class="fine">
+            “Active project” means enforcement may occur. Unknown direction or
+            location prevents driving alerts.
+          </p>
+          <div id="records" class="records"></div>
+        </details>
+        <details>
+          <summary>Sources & coverage</summary>
+          <div id="sources"></div>
+          <p class="fine">
+            No verified NJ enforcement inventory yet. Toll readers and traffic
+            monitoring are separate from violation enforcement. An empty map
+            does not establish no cameras. NYSDOT schedules exclude separate
+            Thruway, bridge and tunnel operator schedules.
+          </p>
+          <a href="/api/enforcement" download="enforcement.json"
+            >Download current database</a
+          >
+        </details>
+        <details>
+          <summary>Report a location or correction</summary>
+          <form id="report-form">
+            <label
+              >Report kind<select name="kind">
+                <option value="new">New location</option>
+                <option value="correction">Correction</option>
+                <option value="removed">Removed / inactive</option>
+              </select></label
+            ><label
+              >State<select name="state">
+                <option>NY</option>
+                <option>NJ</option>
+                <option>PA</option>
+              </select></label
+            ><label
+              >Highway<select name="route">
+                <option>I-80</option>
+                <option>I-95</option>
+              </select></label
+            ><label
+              >Type<select name="type">
+                <option value="work-zone">Work-zone camera</option>
+                <option value="speed">Speed camera</option>
+                <option value="red-light">Red-light camera</option>
+                <option value="toll">Toll reader</option>
+                <option value="monitoring">Traffic monitoring</option>
+              </select></label
+            ><label
+              >Existing record ID (if known)<input
+                name="recordId"
+                maxlength="160" /></label
+            ><label
+              >Location, direction, observation date and evidence<textarea
+                name="details"
+                required
+                minlength="10"
+                maxlength="2000"
+                rows="4"
+                placeholder="Include an exit or milepost and a public source link. Do not include plates or personal information."
+              ></textarea></label
+            ><button type="submit">Submit for review</button>
+            <p id="report-message" role="status"></p>
+            <p class="fine">
+              Reports are held for maintainer review before appearing on the
+              map. This form sends only the fields you enter.
+            </p>
+          </form>
+        </details>
+        <footer>
+          © OpenStreetMap contributors · Map tiles © OpenStreetMap<br />Free
+          public routing and map services have usage limits.
+        </footer>
+      </aside>
+      <section
+        class="guidance"
+        id="guidance"
+        aria-label="Driving guidance"
+        hidden
+      >
+        <div class="guidance-top">
+          <span id="mode-label">DRIVING</span
+          ><span id="gps-quality">Waiting for GPS</span>
+        </div>
+        <div class="maneuver">
+          <strong id="turn-distance">—</strong
+          ><span id="turn-text">Waiting for a route</span>
+        </div>
+        <div class="trip">
+          <span><b id="speed">—</b> mph</span><span id="remaining">—</span
+          ><span id="eta">—</span>
+        </div>
+        <p id="alert" role="status" aria-live="polite"></p>
+        <button id="recenter">Recenter map</button>
+        <button id="stop-driving">End trip</button>
+      </section>
+      <div id="map-health" role="status" hidden></div>
+      <div class="map-note">
+        Sourced locations · incomplete coverage · no live enforcement guarantee
+      </div>
+    </main>
+    <script type="module" src="/src/driving/app.js"></script>
+  </body>
+</html>

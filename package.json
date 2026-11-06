@@ -32,6 +32,11 @@
     "visualization"
   ],
   "scripts": {
+    "enforcement:refresh": "node --use-env-proxy scripts/enforcement/refresh.mjs",
+    "enforcement:watch": "node scripts/enforcement/watch.mjs",
+    "enforcement:manage": "node scripts/enforcement/manage.mjs",
+    "test:driving": "node --test src/driving/*.test.mjs",
+    "qa:driving": "node scripts/qa-driving.mjs",
     "doctor": "node scripts/setup-doctor.mjs",
     "format": "node scripts/format.mjs --write",
     "format:check": "node scripts/format.mjs --check",

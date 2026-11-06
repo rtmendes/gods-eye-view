@@ -31,7 +31,7 @@ import { windProxy } from './wind.js';
  * Construct the local provider plugins in their established order.
  * `realtime` configures the voice session token endpoint.
  */
-function localProviderPlugins({ realtime } = {}) {
+function localProviderPlugins({ realtime, routing } = {}) {
   return [
     openSkyProxy(),
     celestrakProxy(),
@@ -40,7 +40,7 @@ function localProviderPlugins({ realtime } = {}) {
     rocketLaunchesProxy(),
     terrainHeightsProxy(),
     adsbdbProxy(),
-    overpassProxy(),
+    overpassProxy({ routing }),
     militaryInstallationsProxy(),
     regionalBriefProxy(),
     geocodeProxy(),
