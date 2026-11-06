@@ -1,6 +1,6 @@
 /** Shared, dependency-free navigation and enforcement policy. Coordinates are [lon, lat]. */
 export const STATES = ['NY', 'NJ', 'PA'];
-export const ROUTES = ['I-80', 'I-95'];
+export const ROUTES = ['I-80', 'I-95', 'Harlem–Tyrone corridor'];
 export const STATUSES = [
   'fixed',
   'scheduled',
@@ -125,6 +125,30 @@ export function normalizeRecord(r) {
     );
   if (r.status === 'scheduled' && (!r.validFrom || !r.validTo))
     throw new Error('Scheduled deployments require start and end times');
+  const coordinateMeaning = [
+    'physical-device',
+    'agency-camera-site-marker',
+    'road-reference',
+    'zone-reference',
+    'unverified-point',
+  ].includes(r.coordinateMeaning)
+    ? r.coordinateMeaning
+    : r.geometry?.type === 'Point'
+      ? 'unverified-point'
+      : 'zone-reference';
+  const accuracy =
+    Number.isFinite(r.positionAccuracyMeters) && r.positionAccuracyMeters > 0
+      ? r.positionAccuracyMeters
+      : null;
+  if (
+    r.equipmentPositionVerified === true &&
+    (coordinateMeaning !== 'physical-device' ||
+      accuracy == null ||
+      !Number.isFinite(Date.parse(r.lastPhysicalVerificationUTC)))
+  )
+    throw new Error(
+      'Verified equipment positions require physical-device coordinates, accuracy and verification date',
+    );
   const text = (s, n = 1000) =>
     String(s || '')
       .replace(/[\x00-\x1f]/g, ' ')
@@ -169,6 +193,20 @@ export function normalizeRecord(r) {
         ? r.milepostEnd
         : null,
     sourceId: text(r.sourceId, 80),
+    coordinateMeaning,
+    equipmentPositionVerified: r.equipmentPositionVerified === true,
+    positionAccuracyMeters: accuracy,
+    lastPhysicalVerificationUTC:
+      r.equipmentPositionVerified === true
+        ? r.lastPhysicalVerificationUTC
+        : null,
+    sourceSiteId: text(r.sourceSiteId, 160),
+    sourceImageUrl: safeUrl(r.sourceImageUrl),
+    sourceViewCount:
+      Number.isInteger(r.sourceViewCount) && r.sourceViewCount > 0
+        ? r.sourceViewCount
+        : null,
+    curationNote: text(r.curationNote),
     sourceUrl: safeUrl(r.sourceUrl),
     license: text(r.license, 300),
     validFrom: r.validFrom || null,

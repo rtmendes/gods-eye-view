@@ -22,7 +22,18 @@ const escape = (s) =>
   );
 export function recordDescription(r) {
   const marker = markerDetails(r);
-  return `<h3>${escape(r.title)}</h3><p>${escape(r.description)}</p><p>${escape(r.state)} · ${escape(r.route)} · ${escape(r.direction || 'Direction unverified')}</p><p>${escape(temporalStatus(r))} · ${escape(r.precision)} location · ${escape(r.verification)}</p><p>${escape(marker?.label || 'Location unavailable')}. ${r.geometry?.type !== 'Point' ? 'Pin is a reference inside the published zone, not an exact camera position.' : 'Mapped position; current camera operation is unconfirmed.'}</p><p>Source standard limit: ${r.standardSpeedLimitMph ? `${escape(r.standardSpeedLimitMph)} mph` : 'not supplied'}. Source work-zone / camera limit: ${r.speedLimitMph ? `${escape(r.speedLimitMph)} mph` : 'not supplied'}. Overlapping records may disagree; follow posted signs.</p><p>Published highway mileposts: ${r.milepostBegin != null && r.milepostEnd != null ? `${escape(r.milepostBegin)}–${escape(r.milepostEnd)}` : 'not supplied'}.</p><p>Source retrieved ${escape(r.retrievedAt || 'unknown')}. ${r.observedAt ? `Observed ${escape(r.observedAt)}.` : ''} ${r.validTo ? `Schedule ends ${escape(r.validTo)}.` : ''} ${r.expiresAt ? `Observation expires ${escape(r.expiresAt)}.` : ''}</p><p>Project status does not confirm a camera is enforcing now. These markers are refreshed database records, not live camera telemetry.</p><p><a href="${escape(safeUrl(r.sourceUrl))}" target="_blank" rel="noopener noreferrer">Source evidence</a></p><p>${escape(r.license)}</p>`;
+  const sitePoint = r.coordinateMeaning === 'agency-camera-site-marker';
+  const pointNote = sitePoint
+    ? 'Agency camera-site marker; physical mount position and accuracy are unverified.'
+    : 'Mapped position; current camera operation is unconfirmed.';
+  const quality = r.equipmentPositionVerified
+    ? `Physical-device position verified ${escape(r.lastPhysicalVerificationUTC)}; stated accuracy ${escape(r.positionAccuracyMeters)} m.`
+    : 'Physical-device coordinates have not been independently verified.';
+  const coordinates =
+    r.geometry?.type === 'Point'
+      ? `Source latitude/longitude: ${escape(r.geometry.coordinates[1])}, ${escape(r.geometry.coordinates[0])}.`
+      : '';
+  return `<h3>${escape(r.title)}</h3><p>${escape(r.description)}</p><p>${escape(r.state)} · ${escape(r.route)} · ${escape(r.direction || 'Direction unverified')}</p><p>${escape(temporalStatus(r))} · ${escape(r.precision)} location · ${escape(r.verification)}</p><p>${escape(marker?.label || 'Location unavailable')}. ${r.geometry?.type !== 'Point' ? 'Pin is a reference inside the published zone, not an exact camera position.' : pointNote}</p><p>${coordinates} ${quality} ${escape(r.curationNote || '')}</p><p>Source standard limit: ${r.standardSpeedLimitMph ? `${escape(r.standardSpeedLimitMph)} mph` : 'not supplied'}. Source work-zone / camera limit: ${r.speedLimitMph ? `${escape(r.speedLimitMph)} mph` : 'not supplied'}. Overlapping records may disagree; follow posted signs.</p><p>Published highway mileposts: ${r.milepostBegin != null && r.milepostEnd != null ? `${escape(r.milepostBegin)}–${escape(r.milepostEnd)}` : 'not supplied'}.</p><p>Source retrieved ${escape(r.retrievedAt || 'unknown')}. ${r.observedAt ? `Observed ${escape(r.observedAt)}.` : ''} ${r.validTo ? `Schedule ends ${escape(r.validTo)}.` : ''} ${r.expiresAt ? `Observation expires ${escape(r.expiresAt)}.` : ''}</p><p>Project status does not confirm a camera is enforcing now. These markers are refreshed database records, not live camera telemetry.</p><p><a href="${escape(safeUrl(r.sourceUrl))}" target="_blank" rel="noopener noreferrer">Source evidence</a>${r.sourceImageUrl ? ` · <a href="${escape(safeUrl(r.sourceImageUrl))}" target="_blank" rel="noopener noreferrer">Agency camera view (not a device photo)</a>` : ''}</p><p>${r.sourceViewCount ? `${escape(r.sourceViewCount)} source view(s); this is not a physical device count.` : ''}</p><p>${escape(r.license)}</p>`;
 }
 /** A zone pin is a reference on its longest mapped piece, never a guessed camera position. */
 export function markerDetails(r, now = Date.now()) {
@@ -41,7 +52,9 @@ export function markerDetails(r, now = Date.now()) {
     : workZone
       ? 'Published work-zone reference'
       : monitor
-        ? 'Traffic-monitoring location'
+        ? r.coordinateMeaning === 'agency-camera-site-marker'
+          ? 'Agency camera-site point; mount accuracy unverified'
+          : 'Traffic-monitoring location'
         : toll
           ? 'Toll-reader location'
           : 'Mapped enforcement-camera location';

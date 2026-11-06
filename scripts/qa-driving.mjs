@@ -121,9 +121,11 @@ try {
   assert.equal(await page.evaluate(() => window.qaCleared), 7);
   assert.equal(await page.$eval('#guidance', (e) => e.hidden), true);
   await page.select('#state-filter', 'NY');
-  assert.match(
-    await page.$eval('#inventory-count', (e) => e.textContent),
-    /^0 /,
+  assert.equal(
+    await page.$$eval('#records .badge', (rows) =>
+      rows.every((row) => row.textContent.startsWith('NY ·')),
+    ),
+    true,
   );
   await page.select('#state-filter', '');
   await page.click('#replay');

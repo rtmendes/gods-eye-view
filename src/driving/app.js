@@ -278,6 +278,7 @@ function renderInventory() {
         `${r.direction || 'Direction unverified'} · ${r.geometry ? r.precision : 'Location not mapped'}${r.speedLimitMph ? ` · source limit ${r.speedLimitMph} mph` : ''}`,
       ),
     );
+    if (r.curationNote) row.append(element('p', r.curationNote, 'fine'));
     if (r.validTo || r.expiresAt)
       row.append(
         element(

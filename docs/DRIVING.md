@@ -7,6 +7,17 @@ globe gains an **I-80 / I-95 Enforcement** layer using the same database.
 
 ### Map markers and refresh
 
+The first equipment curation adds 49 agency-published monitoring-camera site
+points for the Harlem–Tyrone corridor (7 NYC DOT, 42 511PA). They are not
+independently verified physical camera mounts and are not treated as citation
+cameras. Use the `Harlem–Tyrone corridor` filter or monitoring type filter to
+view them. Popups preserve their source coordinates, coordinate meaning, unknown
+physical accuracy, evidence and agency camera-view links when supplied.
+Seventeen ambiguous candidates and one coordinate/description conflict remain
+outside the app imports. See [the curation audit](../curation/harlem-tyrone/README.md).
+This point inventory is a dated curation; source ingestion and map refresh are
+separate, and the hourly work-zone importer does not refresh these catalogs.
+
 The map and globe refresh their database markers every minute while enabled.
 Drive also has **Refresh markers** and an automatic-refresh toggle. The map-sync
 time and latest successful source-import time are displayed separately: polling
