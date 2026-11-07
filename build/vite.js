@@ -128,6 +128,7 @@ export function createBrowserViteConfig({
           road: 'road/index.html',
           fines: 'road/fines/index.html',
           sources: 'road/sources/index.html',
+          routePlanner: 'road/route/index.html',
         },
       },
     },

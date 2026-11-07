@@ -582,3 +582,245 @@ footer a {
     max-height: 550px;
   }
 }
+.route-page main {
+  padding-top: 32px;
+}
+.route-page h1 {
+  font-size: clamp(32px, 4vw, 52px);
+  margin: 12px 0;
+}
+.route-page .lede {
+  max-width: 1000px;
+  font-size: 17px;
+}
+.route-layout {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.endpoint-panel {
+  margin: 0;
+}
+.endpoint-panel h2 {
+  font-size: 24px;
+  margin-top: 0;
+}
+.endpoint-search {
+  display: flex;
+  gap: 7px;
+}
+.endpoint-search input {
+  margin-top: 0 !important;
+}
+.gps-button {
+  margin-top: 10px;
+}
+.endpoint-search button {
+  padding: 8px 12px !important;
+}
+.trip-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+.trip-actions button:first-child {
+  flex: 1;
+}
+.example-button {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+}
+.place-options {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+.place-options:empty {
+  margin: 0;
+}
+.place-options .place-option {
+  background: #eaf3e9 !important;
+  border-color: #acc4b0 !important;
+  color: var(--ink) !important;
+  text-align: left;
+  font-size: 12px;
+  padding: 9px !important;
+}
+.route-map-panel {
+  margin: 0;
+  min-width: 0;
+}
+#trip-map {
+  height: 600px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #e7eee8;
+  z-index: 0;
+}
+.trip-map-legend {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+.trip-map-legend span:first-child {
+  color: #087565;
+}
+.trip-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+.trip-summary .metric strong {
+  font-size: 30px;
+}
+.route-choice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  padding: 10px;
+  border-radius: 6px;
+}
+.route-choice input {
+  width: 18px !important;
+  flex: 0 0 18px;
+  accent-color: var(--accent);
+}
+.route-choice strong,
+.route-choice small {
+  display: block;
+  line-height: 1.5;
+}
+.route-choice small {
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--muted);
+}
+.route-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.route-controls label:first-child {
+  min-width: 150px;
+}
+.route-controls .check {
+  max-width: 280px;
+}
+.corridor-records {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-height: 900px;
+  overflow: auto;
+}
+.corridor-record {
+  margin: 0;
+}
+.corridor-record h3 {
+  font-size: 17px;
+}
+.corridor-record p {
+  font-size: 13px;
+  line-height: 1.55;
+}
+.trip-steps {
+  max-height: 460px;
+  overflow: auto;
+  padding-left: 30px;
+}
+.trip-steps li {
+  padding: 7px;
+}
+.trip-steps button {
+  text-align: left;
+  font-size: 13px;
+}
+.route-footer {
+  margin-top: 24px;
+  border-radius: 10px;
+  font-size: 12px;
+  padding: 20px !important;
+}
+.leaflet-tooltip.trip-marker-letter {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: #102e35;
+  font-weight: 800;
+  font-size: 12px;
+}
+.leaflet-tooltip.trip-marker-letter:before {
+  display: none;
+}
+.leaflet-popup-content p {
+  font-size: 12px;
+}
+.leaflet-popup-content a {
+  color: #00695b;
+}
+@media (max-width: 800px) {
+  .route-layout {
+    grid-template-columns: 1fr;
+  }
+  .endpoint-panel {
+    max-width: none;
+  }
+  .route-map-panel {
+    margin-top: 0;
+  }
+  #trip-map {
+    height: 420px;
+  }
+  .trip-summary .metric {
+    padding: 13px;
+  }
+  .trip-summary .metric strong {
+    font-size: 22px;
+  }
+  .trip-summary .metric span {
+    font-size: 10px;
+  }
+  .corridor-records {
+    grid-template-columns: 1fr;
+    max-height: 850px;
+  }
+  .route-controls {
+    gap: 6px 18px;
+  }
+  .route-controls .check {
+    max-width: none;
+  }
+  .route-page main {
+    padding-top: 24px;
+  }
+}
+@media (max-width: 400px) {
+  .trip-summary {
+    grid-template-columns: 1fr;
+  }
+  .trip-summary .metric {
+    border-right: 0;
+  }
+  .trip-summary .metric strong {
+    font-size: 25px;
+  }
+}
+.planner-cta {
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}

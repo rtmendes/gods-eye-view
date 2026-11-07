@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#102e35" />
+    <title>Route planner & road intelligence · God's Eye View</title>
+  </head>
+  <body class="route-page">
+    <header>
+      <a class="brand" href="/road/">◉ GOD’S EYE VIEW <span>ROAD</span></a>
+      <nav aria-label="Main">
+        <a aria-current="page" href="/road/route/">Route planner</a
+        ><a href="/road/">Coverage</a><a href="/road/fines/">Fines</a
+        ><a href="/road/sources/">Sources</a
+        ><a href="/equipment/">Equipment map</a>
+      </nav>
+    </header>
+    <main>
+      <div class="eyebrow">PLAN THE DRIVE / SEE THE PUBLISHED CONTEXT</div>
+      <h1>A route with more context.</h1>
+      <p class="lede">
+        Choose your endpoints. See directions, mapped monitoring sites and
+        published work-zone references near the drive.
+      </p>
+      <div class="route-layout">
+        <aside class="panel endpoint-panel">
+          <h2>Where are you headed?</h2>
+          <form id="trip-form">
+            <label for="trip-origin">Starting point</label>
+            <div class="endpoint-search">
+              <input
+                id="trip-origin"
+                maxlength="200"
+                autocomplete="off"
+                placeholder="Town, address, or latitude, longitude"
+                required
+              /><button type="button" id="find-origin" class="secondary">
+                Find
+              </button>
+            </div>
+            <button type="button" id="trip-gps" class="secondary gps-button">
+              Use current location
+            </button>
+            <div
+              id="origin-options"
+              class="place-options"
+              aria-label="Starting point search results"
+            ></div>
+            <label for="trip-destination">Destination</label>
+            <div class="endpoint-search">
+              <input
+                id="trip-destination"
+                maxlength="200"
+                autocomplete="off"
+                placeholder="Where are you going?"
+                required
+              /><button type="button" id="find-destination" class="secondary">
+                Find
+              </button>
+            </div>
+            <div
+              id="destination-options"
+              class="place-options"
+              aria-label="Destination search results"
+            ></div>
+            <div class="trip-actions">
+              <button id="generate-route" type="submit">
+                Generate driving route →</button
+              ><button id="cancel-route" type="button" class="secondary" hidden>
+                Cancel
+              </button>
+            </div>
+            <button
+              id="example-route"
+              type="button"
+              class="secondary example-button"
+            >
+              Try Harlem → Tyrone, PA</button
+            ><button id="clear-route" type="button" class="secondary">
+              Clear trip
+            </button>
+          </form>
+          <p id="trip-status" class="muted" role="status" aria-live="polite">
+            Search explicitly, select each place, then generate the route.
+            Coordinate format is latitude, longitude.
+          </p>
+          <p class="muted small">
+            Address searches go to Nominatim; endpoints go to the public OSM
+            routing service. Map tiles reveal the viewed area to OpenStreetMap.
+            Trips stay in page memory and are not saved to an account or URL.
+          </p>
+          <div id="route-choices" aria-label="Returned driving routes"></div>
+        </aside>
+        <section
+          class="route-map-panel"
+          aria-label="Interactive driving route and intelligence map"
+        >
+          <div id="trip-map"></div>
+          <div class="trip-map-legend">
+            <span>● Driving route</span><span>W Work-zone reference</span
+            ><span>T Traffic monitor</span><span>C Camera reference</span>
+          </div>
+          <p id="map-status" class="muted" role="status">
+            Pan and zoom the map. Generate a route to load corridor context.
+          </p>
+        </section>
+      </div>
+      <section id="trip-results" hidden>
+        <div class="trip-summary" id="trip-summary"></div>
+        <div class="callout">
+          Travel time excludes live congestion. This is a route-planning view,
+          not live GPS turn-by-turn navigation. Monitoring cameras do not
+          establish ticket enforcement. Work-zone areas and source speed limits
+          do not establish an exact device position, current activation, or
+          today’s posted signs.
+        </div>
+        <div class="section-top">
+          <div>
+            <div class="eyebrow">
+              PUBLISHED REFERENCES / ORDERED ALONG THE ROUTE
+            </div>
+            <h2>Intelligence for this corridor.</h2>
+          </div>
+          <button id="refresh-trip-data" class="secondary" type="button">
+            Refresh inventory snapshot
+          </button>
+        </div>
+        <div class="route-controls">
+          <label
+            >Corridor radius<select id="corridor-radius">
+              <option value="100">100 m</option>
+              <option value="250" selected>250 m</option>
+              <option value="500">500 m</option>
+            </select></label
+          ><label class="check"
+            ><input id="include-opposite" type="checkbox" /> Include known
+            opposite-direction references</label
+          ><label class="check"
+            ><input id="include-history" type="checkbox" /> Include stale,
+            expired and historical references</label
+          >
+        </div>
+        <p id="trip-data-status" class="muted" role="status"></p>
+        <p id="corridor-coverage" class="muted"></p>
+        <div
+          id="corridor-records"
+          class="corridor-records"
+          aria-live="polite"
+        ></div>
+        <details class="panel">
+          <summary>Step-by-step route directions</summary>
+          <p class="muted">
+            Directions come from the routing service. Verify signs and access
+            restrictions; this page does not announce maneuvers as you drive.
+          </p>
+          <p id="steps-status" class="muted"></p>
+          <ol id="trip-steps" class="trip-steps"></ol>
+        </details>
+      </section>
+      <footer class="route-footer">
+        Routing © FOSSGIS / OpenStreetMap contributors · Geocoding © Nominatim /
+        OpenStreetMap contributors. Public services have usage limits and may be
+        unavailable. No live flow, incident or traffic-aware ETA service is
+        connected. <a href="/road/sources/">Review sources and coverage →</a>
+      </footer>
+    </main>
+    <script type="module" src="/src/road/planner.js"></script>
+  </body>
+</html>

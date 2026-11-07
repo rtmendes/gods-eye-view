@@ -16,7 +16,7 @@ Open `/road/` for the coverage atlas, hardware observation simulator and equipme
 
 `src/driving/jurisdictions.js` is the canonical state list. `scripts/enforcement/generate-coverage.mjs` derives a small national coverage summary from the bundled snapshot; rerun it after exporting new equipment data. `npm run road:audit` validates current rules and reports legal review gaps, equipment verification and commercial source clearance. `src/road/quality.js` distinguishes physical verification from source site markers and requires explicit evidence before commercial source clearance.
 
-The hosted Site is a static companion: atlas, fine comparisons, simulation and curated map. Live route requests, GPS driving and the SQLite reports service stay in the backend application. Hosted Site publication does not create a mobile app or background navigation service.
+The hosted Site is a static companion: atlas, fine comparisons, simulation and curated map. The hosted `/road/route/` planner supports explicit address searches, coordinates, a single GPS starting fix, route alternatives and source-linked corridor references. Foreground GPS driving and the SQLite reports service stay in the backend application. Hosted Site publication does not create a mobile app or background navigation service.
 
 ## Hardware integration contract
 
@@ -47,3 +47,13 @@ The default atlas tiles show these 18; the filter can expose all states. Road cl
 Every one of the 306 published inventory records has a source-provenance deep link. The 17 curated review candidates and one quarantined mismatch are opt-in, never promoted to published map equipment. Related state resources are background and are not treated as additional coordinate evidence. See `curation/sources/README.md` for counts, link-check limitations and update commands.
 
 The source index refreshes when the local enforcement refresh script publishes the snapshot, or the CLI exports to the canonical snapshot path. The static Site still requires a build and deployment to expose those changes. No nationwide equipment import, private source access, source subscription, commercial license or additional verified device position was created by registering the sources.
+
+## Dynamic route planner
+
+Enter a starting point and destination at `/road/route/`, use Find and select the intended places, then generate a driving route. Coordinates use latitude, longitude. Alternatives appear only when returned by the service. Step directions are planning instructions; this page does not provide continuous GPS guidance or automatic rerouting.
+
+Explicit address searches go to public Nominatim, route endpoints to the FOSSGIS OSRM car service, and basemap requests to OpenStreetMap. No API key is required. These public services have usage limits and no availability guarantee; production scale needs a compliant hosted provider or self-hosting. Searches are serialized and cached in page memory; trips are not stored in URLs, local storage or an account. Clear trip erases this cache.
+
+Travel times exclude live traffic. Route matching uses the same-origin published inventory, with 100/250/500 m corridor filters, source direction and date status. Opposite-direction and historical records are excluded by default. Nearby references do not establish lane association, device activation or precise equipment mounting. Source limits and highway mileposts remain distinct from trip distance. Missing records mean unknown coverage. Refresh reloads the published snapshot, not upstream agency feeds.
+
+Validation: `npm run qa:route` exercises endpoint selection, alternatives, direction/history filters, snapshot refresh, mobile layout, service failures and cancellation against controlled fixtures. `src/driving/routing-planner.test.mjs` checks matching and public-service clients.
