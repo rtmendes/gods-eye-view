@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#102e35" />
+    <title>Sources & location provenance · God's Eye View</title>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/road/">◉ GOD’S EYE VIEW <span>ROAD</span></a>
+      <nav aria-label="Main">
+        <a href="/road/">National coverage</a
+        ><a href="/road/fines/">Fines explorer</a
+        ><a aria-current="page" href="/road/sources/">All sources</a
+        ><a href="/equipment/">Equipment map</a>
+      </nav>
+    </header>
+    <main>
+      <div class="eyebrow">ALL 50 STATES + DC / FOLLOW THE EVIDENCE</div>
+      <h1>Every record.<br /><span>Its sources in view.</span></h1>
+      <p class="lede">
+        Explore the known source registry and trace each published location to
+        its evidence. Federal directory listings, research portals, reviewed
+        legal references and imported feeds have different roles.
+      </p>
+      <div id="source-metrics" class="metrics"></div>
+      <div class="callout">
+        This registry covers every state and DC. It is not an exhaustive
+        inventory of every city, camera or data provider. HTTP reachability does
+        not establish data accuracy, current enforcement, API access or
+        commercial reuse rights.
+      </div>
+      <div class="section-top">
+        <label
+          >State or district<select id="source-state">
+            <option value="">All 50 states + DC</option>
+          </select></label
+        ><button id="download-registry">
+          Download complete registry + provenance JSON
+        </button>
+      </div>
+      <p id="registry-date" class="muted"></p>
+      <section
+        id="location-detail"
+        class="panel"
+        aria-live="polite"
+        hidden
+      ></section>
+      <section aria-labelledby="sources-heading">
+        <div class="eyebrow">01 / SOURCE DIRECTORY</div>
+        <h2 id="sources-heading">The full registered source list.</h2>
+        <div class="source-filters">
+          <label
+            >Search sources<input
+              id="source-query"
+              type="search"
+              placeholder="Agency, city, camera, source ID or URL" /></label
+          ><label
+            >Source category<select id="source-category">
+              <option value="">All categories</option>
+            </select></label
+          ><label
+            >Data status<select id="source-status">
+              <option value="">All statuses</option>
+            </select></label
+          >
+        </div>
+        <p id="sources-count" role="status" class="muted"></p>
+        <div
+          class="source-table-wrap"
+          tabindex="0"
+          role="region"
+          aria-label="Source directory; scroll to view all rows and columns"
+        >
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Source / evidence</th>
+                <th scope="col">States</th>
+                <th scope="col">Category</th>
+                <th scope="col">Import / review status</th>
+                <th scope="col">Link check</th>
+                <th scope="col">Scope & limits</th>
+              </tr>
+            </thead>
+            <tbody id="source-rows"></tbody>
+          </table>
+        </div>
+        <p class="muted">
+          “Discovered” and “directory” entries are research leads. “Reviewed
+          reference” describes a source note, not full legal coverage. Only
+          sources marked “ingested” have records in the current inventory.
+          Import, review and link-check dates are separate.
+        </p>
+      </section>
+      <section aria-labelledby="locations-heading">
+        <div class="eyebrow">02 / LOCATION PROVENANCE</div>
+        <h2 id="locations-heading">Trace a location record.</h2>
+        <label
+          >Search locations<input
+            id="location-query"
+            type="search"
+            placeholder="Road, location name, equipment/site ID or record ID" /></label
+        ><label class="check"
+          ><input id="include-review" type="checkbox" /> Include the curated
+          review candidates and quarantined mismatch. These are not published
+          map equipment.</label
+        >
+        <p id="locations-count" role="status" class="muted"></p>
+        <div
+          class="source-table-wrap"
+          tabindex="0"
+          role="region"
+          aria-label="Location provenance; scroll to view all rows and columns"
+        >
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Location / record</th>
+                <th scope="col">State / road</th>
+                <th scope="col">Type / status</th>
+                <th scope="col">Position meaning</th>
+                <th scope="col">Evidence</th>
+                <th scope="col">Retrieved</th>
+              </tr>
+            </thead>
+            <tbody id="location-rows"></tbody>
+          </table>
+        </div>
+        <p class="muted">
+          The location index includes published project references and
+          monitoring sites, not just cameras. Related state resources provide
+          background; they do not independently verify a device position. No
+          pending crowd reports, vehicle plates or driver records are included.
+        </p>
+      </section>
+    </main>
+    <footer>
+      God’s Eye View Road · Data provenance and access observations are
+      snapshots. <a href="/road/">National coverage →</a>
+    </footer>
+    <script type="module" src="/src/road/sources.js"></script>
+  </body>
+</html>

@@ -88,6 +88,10 @@ function select(code) {
   actions.append(
     link('Compare fines →', `/road/fines/?state=${state.code}`),
     link('Explore curated corridor map →', '/equipment/'),
+    link(
+      `All sources for ${state.code} →`,
+      `/road/sources/?state=${state.code}`,
+    ),
   );
   detail.append(actions);
   if (state.rollout) {

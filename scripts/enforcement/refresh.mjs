@@ -1,4 +1,5 @@
 import { mkdir, writeFile, readFile, mkdtemp, rm } from 'node:fs/promises';
+import { refreshSourceIndex } from '../../server/enforcement/source-index.js';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -202,11 +203,14 @@ try {
         },
       );
     }
-  if (process.argv.includes('--publish'))
+  if (process.argv.includes('--publish')) {
+    const snapshot = store.snapshot();
     await writeFile(
       new URL('../../public/enforcement/snapshot.json', import.meta.url),
-      JSON.stringify(store.snapshot()) + '\n',
+      JSON.stringify(snapshot) + '\n',
     );
+    refreshSourceIndex(snapshot);
+  }
 } finally {
   store.close();
 }

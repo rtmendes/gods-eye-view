@@ -322,6 +322,11 @@ function renderInventory() {
       row.append(button);
     }
     row.append(sourceLink(r.sourceUrl, 'Source ↗'));
+    const provenance = element('a', 'All sources & provenance →');
+    provenance.href = `/road/sources/?location=${encodeURIComponent(r.id)}`;
+    provenance.target = '_blank';
+    provenance.rel = 'noopener noreferrer';
+    row.append(provenance);
     $('records').append(row);
   }
   $('sources').replaceChildren();

@@ -127,6 +127,7 @@ export function createBrowserViteConfig({
           drive: 'drive/index.html',
           road: 'road/index.html',
           fines: 'road/fines/index.html',
+          sources: 'road/sources/index.html',
         },
       },
     },

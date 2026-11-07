@@ -1,4 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { refreshSourceIndex } from '../../server/enforcement/source-index.js';
 import { openStore, seedStore } from '../../server/enforcement/store.js';
 const [command, arg, file] = process.argv.slice(2);
 const store = openStore();
@@ -12,12 +15,21 @@ try {
   else if (command === 'import') {
     const payload = JSON.parse(readFileSync(arg, 'utf8'));
     store.importSource(payload.source, payload.records);
-  } else if (command === 'export')
+  } else if (command === 'export') {
+    const snapshot = store.snapshot();
     writeFileSync(
       arg || 'enforcement-export.json',
-      JSON.stringify(store.snapshot(), null, 2),
+      JSON.stringify(snapshot, null, 2),
     );
-  else
+    if (
+      arg &&
+      resolve(arg) ===
+        fileURLToPath(
+          new URL('../../public/enforcement/snapshot.json', import.meta.url),
+        )
+    )
+      refreshSourceIndex(snapshot);
+  } else
     throw new Error(
       'Usage: manage.mjs reports | reject ID | approve ID reviewed-record.json | import source-and-records.json | export [path]',
     );

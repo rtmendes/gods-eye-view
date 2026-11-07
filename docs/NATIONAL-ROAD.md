@@ -39,3 +39,11 @@ Confidence, map rank, penalty calculation and alert selection must never depend 
 The initial rollout prioritizes Atlantic coastal states ME/NH/MA/RI/CT/NY/NJ/DE/MD/VA/NC/SC/GA/FL, plus DC, Texas, California, and the retained Pennsylvania corridor. 17 of these 18 jurisdictions have at least one reviewed monetary rule; NJ still requires current monetary schedule verification. This is not full program/charge coverage within those states.
 
 The default atlas tiles show these 18; the filter can expose all states. Road classification is a scenario input where a statute differentiates interstates/limited-access roads. Texas work-zone doubling also requires confirming the citation’s worker-presence notation. Candidate agency portals are research links only. The equipment inventory remains unchanged: no new physical device coordinates or live deployments are implied by legal coverage.
+
+## Nationwide source directory
+
+`/road/sources/` exposes the full registered source directory for all 50 states and DC. It includes 524 source entries/500 distinct URLs: federal/state/regional traveler-information listings, court and legislative research portals, all existing legal references and inventory sources, plus clearly labeled community/partnership resources. HTTP observations do not change content verification, import status or commercial rights.
+
+Every one of the 306 published inventory records has a source-provenance deep link. The 17 curated review candidates and one quarantined mismatch are opt-in, never promoted to published map equipment. Related state resources are background and are not treated as additional coordinate evidence. See `curation/sources/README.md` for counts, link-check limitations and update commands.
+
+The source index refreshes when the local enforcement refresh script publishes the snapshot, or the CLI exports to the canonical snapshot path. The static Site still requires a build and deployment to expose those changes. No nationwide equipment import, private source access, source subscription, commercial license or additional verified device position was created by registering the sources.
