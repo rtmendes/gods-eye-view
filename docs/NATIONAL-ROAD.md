@@ -6,7 +6,7 @@ Open `/road/` for the coverage atlas, hardware observation simulator and equipme
 
 - Canonical identity for 50 states and DC. Enforcement imports and moderated reports accept interstate, US, state and local road names. National support is distinct from data coverage.
 - Equipment coverage still comprises the existing NY/PA corridor snapshot: 306 project/site records, including 49 monitoring-site points, and zero independently verified physical device positions. No new national equipment inventory is implied.
-- Nine current reviewed speeding rules across NY, PA, MD, VA and CA. The remaining 46 jurisdictions, and missing programs within reviewed states, return “Not estimated.” See `curation/laws/README.md` for source decisions and exclusions.
+- 28 current reviewed speeding rules across 17 jurisdictions. The remaining 34 jurisdictions, and missing programs within reviewed states, return “Not estimated.” See `curation/laws/README.md` for source decisions and exclusions.
 - Camera eligibility confirmations, worker presence, warning conditions and severe-offense checks affect results. Estimates expose base/cap basis and excluded fees. They are not ticket totals or legal determinations.
 - Share links carry only the entered state/date/speed/context/history scenario. Camera eligibility confirmations, GPS tracks and device information are not shared.
 - A portable hardware event contract and local simulator. No real Uniden/Escort adapter is connected, no undocumented protocols are used, and no vendor database has been copied or licensed.
@@ -33,3 +33,9 @@ Confidence, map rank, penalty calculation and alert selection must never depend 
 ## Validation
 
 `npm run test:driving` covers navigation plus national normalization, legal scope and arithmetic, stale rules, hardware expiry/privacy and commerce policy. `npm run qa:road` checks state navigation, eligibility, conditions, unknowns and mobile layout in Chromium. Run the repository build, formatter, boundary checks and unit suite before publication.
+
+## Priority cohort
+
+The initial rollout prioritizes Atlantic coastal states ME/NH/MA/RI/CT/NY/NJ/DE/MD/VA/NC/SC/GA/FL, plus DC, Texas, California, and the retained Pennsylvania corridor. 17 of these 18 jurisdictions have at least one reviewed monetary rule; NJ still requires current monetary schedule verification. This is not full program/charge coverage within those states.
+
+The default atlas tiles show these 18; the filter can expose all states. Road classification is a scenario input where a statute differentiates interstates/limited-access roads. Texas work-zone doubling also requires confirming the citation’s worker-presence notation. Candidate agency portals are research links only. The equipment inventory remains unchanged: no new physical device coordinates or live deployments are implied by legal coverage.

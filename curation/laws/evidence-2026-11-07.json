@@ -1,0 +1,27 @@
+{
+  "retrievedOn": "2026-11-07",
+  "receipts": [
+    {
+      "sourceId": "dc-adopted",
+      "url": "https://dcregs.dc.gov/Common/DCMR/RuleDetail.aspx?RuleId=R0056041",
+      "sha256": "921ec8f00e38d64c60b82a05ca59c28cb19fdf092dbe4e90042e16134675defb",
+      "retrieval": "Public adopted-rule View text action (lnkNoticeFile); downloaded Word binary. No account or authentication used.",
+      "excerpt": "Speeding\n          Up to 10 mph in excess of limit [\n 2200]\n$50.00\n          More than 10 up to 15 mph in excess of limit [\n 2200]\n$100.00\n          More than 15 up to 20 mph in excess of limit [\n 2200]\n$150.00\n          More than 20 up to 25 mph in excess of limit [\n 2200]\n$200.00\n          More than 25 mph in excess of limit on controlled access    roadways [\n 2200]\n$400.00\n          More than 25 mph in excess of limit on non-controlled access roadways [\n 2200]\n$500.00\n          Minimum; driving too slowly [",
+      "note": "The adopted file resolves the prior August 2026 amendment hold; template metadata is not treated as legal text."
+    },
+    {
+      "sourceId": "ga-camera",
+      "url": "https://gov.georgia.gov/document/2026-signed-legislation/hb-651/download",
+      "sha256": "e1a30cc3f835fd20b83a56cfd8d5e70c6e66e02694d7176c8e718814e82e4b68",
+      "excerpt": "Penalty shall be $75.00 for a first violation and $125.00 for a second or any subsequent violation. Most provisions effective July 1, 2026; sections 2 and 9 effective July 1, 2027.",
+      "note": "The signed amendment includes strikeouts/underlining. Processing-fee text is not calculated; future sections are not applied."
+    },
+    {
+      "sourceId": "ca-officer-2026",
+      "url": "https://www.lassen.courts.ca.gov/system/files/forms-and-filings/uniform-bail-and-penalty-schedule-effective-january-1-2026.pdf",
+      "sha256": "6c840506b8d61fe2635b97ead93604ff23469058c91f0c6e538ac2054a73d337",
+      "excerpt": "Ordinary traffic speed chart base: 1–15 MPH over $35; 16–25 $70; 26 and over $100.",
+      "note": "Used the traffic speed chart and matching Vehicle Code rows, not the separate parks/recreation chart. County payable totals are not generalized statewide."
+    }
+  ]
+}

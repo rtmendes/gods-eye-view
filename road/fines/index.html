@@ -43,6 +43,15 @@
                 <option value="school">School speed zone</option>
               </select></label
             >
+            <label
+              >Road classification<select id="road-class">
+                <option value="other">Other road</option>
+                <option value="controlled-access">
+                  Multi-lane limited / controlled access
+                </option>
+                <option value="interstate">Interstate / Maine Turnpike</option>
+              </select></label
+            >
             <div class="two-col">
               <label
                 >Posted limit (mph)<input
@@ -92,6 +101,9 @@
               offense occurred at least 15 days after mailing of the first
               warning.</label
             ><label class="check"
+              ><input id="work-notice" type="checkbox" /> Texas: the citation
+              states workers were present.</label
+            ><label class="check"
               ><input id="confirmed" type="checkbox" /> Camera: authorized,
               operational program; required timing, signs, and initial warning
               periods have been checked.</label
@@ -114,6 +126,7 @@
           <p id="share-status" role="status" class="muted"></p>
           <label>Camera program<select id="camera-rule"></select></label>
           <div id="results" class="two-col" aria-live="polite"></div>
+          <section id="camera-policy" class="panel" hidden></section>
           <section class="panel">
             <h3>What this comparison includes</h3>
             <p>
@@ -153,6 +166,12 @@
           All 50 states and DC are selectable. “Review pending” means no
           monetary estimate is published.
         </p>
+        <label class="check"
+          ><input id="priority-only" type="checkbox" checked /> Show the East
+          Coast, DC, Texas and California priority cohort (including
+          Pennsylvania).</label
+        >
+        <p id="priority-summary" class="muted"></p>
         <div id="state-grid" class="state-grid"></div>
       </section>
     </main>

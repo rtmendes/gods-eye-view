@@ -1,11 +1,22 @@
 import './style.css';
-import { laws, coverage, OFFICIAL_PORTALS } from './catalog.js';
+import { laws, coverage, OFFICIAL_PORTALS, rollout } from './catalog.js';
 import { $, el, link, stateGrid } from './dom.js';
 import { evaluatePenalty, formatPenalty } from './penalties.js';
 const params = new URLSearchParams(location.search);
 const today = new Date().toISOString().slice(0, 10);
-for (const state of coverage)
-  $('state').add(new Option(`${state.name} (${state.code})`, state.code));
+for (const [label, states] of [
+  [
+    'Priority rollout: East Coast, DC, Texas and California',
+    coverage.filter((state) => state.rollout),
+  ],
+  ['Other states', coverage.filter((state) => !state.rollout)],
+]) {
+  const group = document.createElement('optgroup');
+  group.label = label;
+  for (const state of states)
+    group.append(new Option(`${state.name} (${state.code})`, state.code));
+  $('state').append(group);
+}
 $('state').value = coverage.some((s) => s.code === params.get('state'))
   ? params.get('state')
   : 'PA';
@@ -18,9 +29,17 @@ for (const id of ['speed', 'limit', 'prior']) {
 }
 if (['ordinary', 'work', 'school'].includes(params.get('zone')))
   $('zone').value = params.get('zone');
+if (
+  ['other', 'controlled-access', 'interstate'].includes(params.get('roadClass'))
+)
+  $('road-class').value = params.get('roadClass');
+if (!coverage.find((state) => state.code === $('state').value)?.rollout)
+  $('priority-only').checked = false;
+$('priority-summary').textContent =
+  `${rollout.name}: ${rollout.jurisdictions.length} prioritized jurisdictions. ${rollout.scope}`;
 // Eligibility attestations never travel in a shared URL; each visitor must establish them.
 $('legal-coverage').textContent =
-  `${coverage.filter((s) => s.rules).length} of 51 jurisdictions have some reviewed speeding rules (${laws.rules.length} rules total). All states are selectable. Other states and unmodeled programs show “Not estimated.” Sources reviewed ${laws.asOf}; this is not a complete national legal database.`;
+  `${coverage.filter((s) => s.rollout && s.rules).length} of ${rollout.jurisdictions.length} priority jurisdictions have some reviewed speeding rules (${laws.rules.length} rules total). Priority: East Coast, DC, Texas and California, with Pennsylvania retained. All 51 jurisdictions remain selectable; unreviewed programs show “Not estimated.” Sources reviewed ${laws.asOf}; this is not complete program or national legal coverage.`;
 function choices() {
   const existing = $('camera-rule').value;
   const rules = laws.rules.filter(
@@ -35,6 +54,9 @@ function choices() {
   else if ($('state').value === 'NY')
     $('camera-rule').value =
       $('zone').value === 'school' ? 'ny-school-camera' : 'ny-work-camera';
+  else if ($('state').value === 'CT')
+    $('camera-rule').value =
+      $('zone').value === 'work' ? 'ct-work-camera' : 'ct-city-camera';
 }
 function card(mode, rule, input) {
   const result = evaluatePenalty(rule, input, $('as-of').value);
@@ -95,6 +117,8 @@ function render() {
     confirmed: $('confirmed').checked,
     warningMatured: $('warning-matured').checked,
     workSigns: $('work-signs').checked,
+    roadClass: $('road-class').value,
+    workNotice: $('work-notice').checked,
   };
   const camera = laws.rules.find(
     (r) => r.id === $('camera-rule').value && r.state === code,
@@ -108,10 +132,24 @@ function render() {
   );
   const hold = laws.holds.find((r) => r.state === code);
   if (hold) $('results').append(el('p', hold.reason, 'empty'));
+  const policy = laws.cameraPolicies?.find((entry) => entry.state === code);
+  $('camera-policy').hidden = !policy;
+  $('camera-policy').replaceChildren();
+  if (policy)
+    $('camera-policy').append(
+      el('h3', 'Camera-authority context'),
+      el('p', policy.summary),
+      el(
+        'p',
+        `Source review ${policy.reviewedOn}; recheck after ${policy.reviewUntil}. This is not an absence-of-cameras finding.`,
+        'muted',
+      ),
+    );
   const ids = new Set([
     ...(camera?.sourceIds || []),
     ...(officer?.sourceIds || []),
     ...(hold?.sourceIds || []),
+    ...(policy?.sourceIds || []),
   ]);
   $('law-sources').replaceChildren();
   for (const source of laws.sources.filter((s) => ids.has(s.id))) {
@@ -137,18 +175,24 @@ function render() {
   $('state-portal').href = OFFICIAL_PORTALS[code];
   $('review-window').textContent =
     'Monetary estimates stop outside the published review window. Historical dates before the review are not reconstructed. Additional laws or local ordinances may apply.';
-  stateGrid(coverage, code, (next) => {
-    $('state').value = next;
-    $('confirmed').checked = false;
-    choices();
-    render();
-    $('state-name').scrollIntoView({ behavior: 'auto', block: 'start' });
-  });
+  stateGrid(
+    $('priority-only').checked ? coverage.filter((s) => s.rollout) : coverage,
+    code,
+    (next) => {
+      $('state').value = next;
+      $('confirmed').checked = false;
+      choices();
+      render();
+      $('state-name').scrollIntoView({ behavior: 'auto', block: 'start' });
+    },
+  );
 }
 $('scenario-form').addEventListener('submit', (event) =>
   event.preventDefault(),
 );
 $('state').addEventListener('change', () => {
+  if (!coverage.find((state) => state.code === $('state').value)?.rollout)
+    $('priority-only').checked = false;
   $('confirmed').checked = false;
   choices();
   render();
@@ -158,6 +202,9 @@ $('zone').addEventListener('change', () => {
   if ($('state').value === 'NY')
     $('camera-rule').value =
       $('zone').value === 'school' ? 'ny-school-camera' : 'ny-work-camera';
+  if ($('state').value === 'CT')
+    $('camera-rule').value =
+      $('zone').value === 'work' ? 'ct-work-camera' : 'ct-city-camera';
   render();
 });
 $('camera-rule').addEventListener('change', () => {
@@ -173,6 +220,9 @@ for (const id of [
   'confirmed',
   'warning-matured',
   'work-signs',
+  'road-class',
+  'work-notice',
+  'priority-only',
 ])
   $(id).addEventListener('input', render);
 $('share').addEventListener('click', async () => {
@@ -183,6 +233,7 @@ $('share').addEventListener('click', async () => {
     speed: $('speed').value,
     limit: $('limit').value,
     prior: $('prior').value,
+    roadClass: $('road-class').value,
   });
   const url = new URL(location.href);
   url.search = p.toString();

@@ -6,6 +6,7 @@ const load = (name) =>
   JSON.parse(readFileSync(new URL(name, import.meta.url), 'utf8'));
 const snapshot = load('../../public/enforcement/snapshot.json');
 const laws = load('../../curation/laws/rules.json');
+const rollout = load('../../curation/priority-rollout.json');
 const states = new Set(JURISDICTIONS.map((state) => state.code));
 const errors = [];
 if (states.size !== 51)
@@ -52,6 +53,13 @@ const report = {
   supportedJurisdictions: states.size,
   reviewedJurisdictions: covered.size,
   currentReviewedRules: activeRules.length,
+  priorityJurisdictions: rollout.jurisdictions.length,
+  priorityReviewed: rollout.jurisdictions.filter((entry) =>
+    covered.has(entry.state),
+  ).length,
+  priorityMonetaryReviewPending: rollout.jurisdictions
+    .filter((entry) => !covered.has(entry.state))
+    .map((entry) => entry.state),
   legalReviewPending: JURISDICTIONS.filter((s) => !covered.has(s.code)).map(
     (s) => s.code,
   ),

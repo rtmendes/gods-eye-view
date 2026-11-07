@@ -25,6 +25,11 @@ try {
   await page.goto(`${origin}/road/`, { waitUntil: 'networkidle2' });
   assert.equal(
     await page.$eval('#state-grid', (grid) => grid.children.length),
+    18,
+  );
+  await page.click('#priority-only');
+  assert.equal(
+    await page.$eval('#state-grid', (grid) => grid.children.length),
     51,
   );
   await page.type('#state-search', 'new jersey');
@@ -56,6 +61,11 @@ try {
   await page.goto(`${origin}/road/fines/?state=PA&date=2026-11-07`, {
     waitUntil: 'networkidle2',
   });
+  assert.equal(
+    await page.$eval('#state-grid', (grid) => grid.children.length),
+    18,
+  );
+  await page.click('#priority-only');
   assert.equal(
     await page.$eval('#state-grid', (grid) => grid.children.length),
     51,
@@ -114,6 +124,16 @@ try {
     /reckless-driving threshold/,
   );
   await page.select('#state', 'TX');
+  await page.select('#zone', 'ordinary');
+  assert.match(
+    await page.$eval('#results', (node) => node.textContent),
+    /\$1\.00–\$200\.00/,
+  );
+  assert.match(
+    await page.$eval('#camera-policy', (node) => node.textContent),
+    /municipal/,
+  );
+  await page.select('#state', 'AK');
   assert.match(
     await page.$eval('#results', (node) => node.textContent),
     /No current reviewed monetary rule/,

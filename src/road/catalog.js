@@ -1,6 +1,8 @@
 import laws from '../../curation/laws/rules.json' with { type: 'json' };
 import snapshot from '../../curation/national-coverage.json' with { type: 'json' };
+import rollout from '../../curation/priority-rollout.json' with { type: 'json' };
 export { laws };
+export { rollout };
 export const coverageSnapshotDate = snapshot.generatedAt;
 export const coverage = snapshot.states.map((state) => {
   const rules = laws.rules.filter(
@@ -8,6 +10,8 @@ export const coverage = snapshot.states.map((state) => {
   );
   return {
     ...state,
+    rollout:
+      rollout.jurisdictions.find((entry) => entry.state === state.code) || null,
     rules: rules.length,
     cameraRules: rules.filter((r) => r.mode === 'camera').length,
     officerRules: rules.filter((r) => r.mode === 'officer').length,

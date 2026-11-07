@@ -1,5 +1,5 @@
 import './style.css';
-import { coverage, coverageSnapshotDate } from './catalog.js';
+import { coverage, coverageSnapshotDate, rollout } from './catalog.js';
 import { $, el, link, stateGrid } from './dom.js';
 import {
   HARDWARE,
@@ -34,12 +34,21 @@ const params = new URLSearchParams(location.search);
 let selected = coverage.some((s) => s.code === params.get('state'))
   ? params.get('state')
   : 'PA';
+if (!coverage.find((state) => state.code === selected)?.rollout)
+  $('priority-only').checked = false;
+$('priority-summary').textContent =
+  `${rollout.name}: ${rollout.jurisdictions.length} prioritized jurisdictions; ${coverage.filter((s) => s.rollout && s.rules).length} have some reviewed monetary rules. ${rollout.scope}`;
 function select(code) {
   selected = code;
   const state = coverage.find((s) => s.code === selected);
   const query = new URLSearchParams({ state: code });
   history.replaceState(null, '', `${location.pathname}?${query}`);
-  stateGrid(coverage, selected, select, $('state-search').value);
+  stateGrid(
+    $('priority-only').checked ? coverage.filter((s) => s.rollout) : coverage,
+    selected,
+    select,
+    $('state-search').value,
+  );
   $('search-status').textContent =
     `${$('state-grid').children.length} of 51 jurisdictions shown.`;
   const detail = $('state-detail');
@@ -81,7 +90,25 @@ function select(code) {
     link('Explore curated corridor map →', '/equipment/'),
   );
   detail.append(actions);
+  if (state.rollout) {
+    detail.append(
+      el('h3', 'Equipment-source research'),
+      el(
+        'p',
+        state.rollout.equipmentSourceStatus === 'partial-existing'
+          ? 'Existing partial inventory. Broader state equipment curation is still needed.'
+          : 'Candidate agency portal; no equipment coordinates have been ingested from this portal.',
+        'muted',
+      ),
+      link(
+        'Agency traveler-information research portal ↗',
+        state.rollout.equipmentPortal,
+      ),
+      el('p', state.rollout.note, 'muted small'),
+    );
+  }
 }
+$('priority-only').addEventListener('change', () => select(selected));
 $('state-search').addEventListener('input', () => select(selected));
 select(selected);
 for (const device of HARDWARE) {
