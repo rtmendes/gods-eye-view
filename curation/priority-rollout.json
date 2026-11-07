@@ -1,0 +1,115 @@
+{
+  "asOf": "2026-11-07",
+  "name": "East Coast + Texas + California",
+  "scope": "Atlantic coastal states from Maine through Florida, plus DC and the existing Pennsylvania corridor; Texas and California. Inland eastern states are not in this initial cohort.",
+  "jurisdictions": [
+    {
+      "state": "ME",
+      "equipmentPortal": "https://www.newengland511.org/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "NH",
+      "equipmentPortal": "https://www.newengland511.org/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "MA",
+      "equipmentPortal": "https://mass511.com/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "RI",
+      "equipmentPortal": "https://www.dot.ri.gov/travel/cameras/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "CT",
+      "equipmentPortal": "https://ctroads.org/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "NY",
+      "equipmentPortal": "https://511ny.org/",
+      "equipmentSourceStatus": "partial-existing",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "NJ",
+      "equipmentPortal": "https://511nj.org/camera",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "PA",
+      "equipmentPortal": "https://www.511pa.com/",
+      "equipmentSourceStatus": "partial-existing",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "DE",
+      "equipmentPortal": "https://deldot.gov/map/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "MD",
+      "equipmentPortal": "https://chart.maryland.gov/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "DC",
+      "equipmentPortal": "https://ddot.dc.gov/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "VA",
+      "equipmentPortal": "https://www.511virginia.org/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "NC",
+      "equipmentPortal": "https://drivenc.gov/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "SC",
+      "equipmentPortal": "https://www.511sc.org/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "GA",
+      "equipmentPortal": "https://511ga.org/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "FL",
+      "equipmentPortal": "https://fl511.com/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "TX",
+      "equipmentPortal": "https://drivetexas.org/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    },
+    {
+      "state": "CA",
+      "equipmentPortal": "https://quickmap.dot.ca.gov/",
+      "equipmentSourceStatus": "candidate-not-ingested",
+      "note": "Agency monitoring/traveler-information research starting point. A portal is not an enforcement-device inventory or evidence of an active camera."
+    }
+  ]
+}

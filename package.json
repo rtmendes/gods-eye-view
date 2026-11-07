@@ -32,6 +32,16 @@
     "visualization"
   ],
   "scripts": {
+    "enforcement:refresh": "node --use-env-proxy scripts/enforcement/refresh.mjs",
+    "enforcement:watch": "node scripts/enforcement/watch.mjs",
+    "enforcement:manage": "node scripts/enforcement/manage.mjs",
+    "road:audit": "node scripts/enforcement/audit-national.mjs",
+    "sources:index": "node scripts/enforcement/generate-source-index.mjs",
+    "sources:check": "node --use-env-proxy scripts/enforcement/check-source-links.mjs",
+    "qa:sources": "node scripts/qa-sources.mjs",
+    "qa:road": "node scripts/qa-road.mjs",
+    "test:driving": "node --test src/driving/*.test.mjs",
+    "qa:driving": "node scripts/qa-driving.mjs",
     "doctor": "node scripts/setup-doctor.mjs",
     "format": "node scripts/format.mjs --write",
     "format:check": "node scripts/format.mjs --check",
@@ -51,7 +61,8 @@
     "qa:street-level:fixtures": "node scripts/qa-street-level.mjs --fixtures",
     "check:boundaries": "node scripts/check-import-directions.mjs && node scripts/check-package-boundaries.mjs",
     "qa:transit": "node scripts/qa-transit.mjs",
-    "mcp": "node server/mcp/stdio.js"
+    "mcp": "node server/mcp/stdio.js",
+    "qa:route": "node scripts/qa-route-planner.mjs"
   },
   "dependencies": {
     "@jtarrio/signals": "^0.10.0",
@@ -61,6 +72,7 @@
     "cesium": "^1.124.0",
     "egm96-universal": "^1.1.1",
     "hls.js": "^1.7.3",
+    "leaflet": "^1.9.4",
     "mapillary-js": "^4.1.2",
     "mgrs": "^2.1.0",
     "pbf": "^5.1.2",
