@@ -122,7 +122,12 @@ export function createBrowserViteConfig({
     build: {
       chunkSizeWarningLimit: 1500,
       rollupOptions: {
-        input: { main: 'index.html', drive: 'drive/index.html' },
+        input: {
+          main: 'index.html',
+          drive: 'drive/index.html',
+          road: 'road/index.html',
+          fines: 'road/fines/index.html',
+        },
       },
     },
   };

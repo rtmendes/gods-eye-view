@@ -35,6 +35,8 @@
     "enforcement:refresh": "node --use-env-proxy scripts/enforcement/refresh.mjs",
     "enforcement:watch": "node scripts/enforcement/watch.mjs",
     "enforcement:manage": "node scripts/enforcement/manage.mjs",
+    "road:audit": "node scripts/enforcement/audit-national.mjs",
+    "qa:road": "node scripts/qa-road.mjs",
     "test:driving": "node --test src/driving/*.test.mjs",
     "qa:driving": "node scripts/qa-driving.mjs",
     "doctor": "node scripts/setup-doctor.mjs",

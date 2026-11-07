@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-11-07",
+  "reviewPolicy": "30-day monetary review window; expired or unreviewed records suppress estimates. A review date is not an enactment or effective date.",
+  "scope": "Speeding only; program-specific rules. Not a complete statement of current traffic law.",
+  "sources": [
+    {
+      "id": "ny-speed",
+      "title": "New York Senate · VTL §1180",
+      "url": "https://www.nysenate.gov/legislation/laws/VAT/1180",
+      "reviewNote": "§1180(h)(1), (3), (5): ordinary/work-zone ranges and repeat-offense maximum increases. School-zone paragraph (4) is not modeled.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "ny-work",
+      "title": "New York State · Automated Work Zone Speed Enforcement",
+      "url": "https://www.ny.gov/work-zone-safety-awareness/automated-work-zone-speed-enforcement-program",
+      "reviewNote": "First violation $50; second within 18 months $75; third and subsequent within 18 months $100. No license points; late fees can apply.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "ny-school",
+      "title": "New York Senate · VTL §1180-b",
+      "url": "https://www.nysenate.gov/legislation/laws/VAT/1180-B",
+      "reviewNote": "Monetary liability shall not exceed fifty dollars for each violation; additional late penalty may apply. NYC program only. Source includes provisions taking effect in 2027; no future procedural provision is applied.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "pa-speed",
+      "title": "Pennsylvania General Assembly · 75 Pa.C.S. §3362",
+      "url": "https://www.legis.state.pa.us/WU01/LI/LI/CT/HTM/75/00.033.062.000..HTM",
+      "reviewNote": "Base $42.50 when the maximum speed limit is 65 mph or higher; otherwise $35. Add $2 per mph exceeding five mph over the maximum.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "pa-work",
+      "title": "Pennsylvania General Assembly · 75 Pa.C.S. §3369",
+      "url": "https://www.legis.state.pa.us/WU01/LI/LI/CT/HTM/75/00.033.069.000..HTM",
+      "reviewNote": "First offense written warning; second $75; third and subsequent $150. A second or subsequent offense must occur at least 15 days after mailing of the warning. Active and in-use system required.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "pa-double",
+      "title": "Pennsylvania General Assembly · 75 Pa.C.S. §3326",
+      "url": "https://www.legis.state.pa.us/WU01/LI/LI/CT/HTM/75/00.033.026.000..HTM",
+      "reviewNote": "§3362 fines double in qualifying active work zones manned by workers, with required official signs. Other injury and license consequences are separate.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "md-work",
+      "title": "Maryland General Assembly · Transportation §21-810",
+      "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtr&section=21-810",
+      "reviewNote": "12–15 mph over $60; 16–19 $80; 20–29 $140; 30–39 $270; 40+ $500. Double these amounts when workers are present. This is not the schedule for other Maryland camera programs.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "va-camera",
+      "title": "Virginia Legislative Information System · §46.2-882.1",
+      "url": "https://law.lis.virginia.gov/vacode/46.2-882.1/",
+      "reviewNote": "At least 10 mph over; civil penalty shall not exceed $100. Work-zone liability requires workers present. A personally issued summons can carry different record consequences from a mailed notice. Page includes future 2027 provisions; those are not applied.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "va-speed",
+      "title": "Virginia Legislative Information System · §46.2-878.3",
+      "url": "https://law.lis.virginia.gov/vacode/46.2-878.3/",
+      "reviewNote": "Where prepayment is permitted: $6 per mph ordinary, $7 for specified school/work-zone offenses. Extra $100 for over 80 but below 86 on a 65 mph road. Other specified residential rules not modeled.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "va-reckless",
+      "title": "Virginia Legislative Information System · §46.2-862",
+      "url": "https://law.lis.virginia.gov/vacode/46.2-862/",
+      "reviewNote": "Reckless-driving speed threshold: 20 mph or more above the limit, or over 85 mph regardless of limit.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "ca-fines",
+      "title": "California Legislature · Vehicle Code §22426",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=VEH&sectionNum=22426.",
+      "reviewNote": "AB 645 pilot: 11–15 mph over $50; 16–25 $100; 26+ $200 unless actual speed is at least 100 mph, then $500. Civil penalty, no violation point.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "ca-scope",
+      "title": "California Legislature · Vehicle Code §22425",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=VEH&sectionNum=22425",
+      "reviewNote": "Six designated local jurisdictions only. Excludes interstates, state routes and other specified roads. Initial 60-day warning periods; vehicle’s first 11–15 mph violation in a jurisdiction is a warning. Income-based reductions available.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "nj-reference",
+      "title": "New Jersey Courts · Published Statewide Violations Bureau Schedule",
+      "url": "https://www.njcourts.gov/sites/default/files/courts/municipal/municipal-violations-bureau-schedule.pdf",
+      "reviewNote": "Document is dated July 29, 2021. Retained as a dated source; not enabled for a current monetary calculation until superseding schedules and applicability are checked.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "nj-pilot",
+      "title": "New Jersey DOT · Red Light Running Pilot",
+      "url": "https://www.nj.gov/transportation/refdata/rlr/",
+      "reviewNote": "Agency reports that the former red-light pilot ended December 16, 2014. Historical camera lists do not establish present enforcement authority.",
+      "retrievedOn": "2026-11-07"
+    },
+    {
+      "id": "dc-version",
+      "title": "DC Office of Documents · 18 DCMR §2600",
+      "url": "https://dcregs.dc.gov/Common/DCMR/SectionList.aspx?SectionNumber=18-2600",
+      "reviewNote": "Current index lists an August 7, 2026 amendment. Monetary calculation held for review of the adopted text rather than using an older indexed schedule.",
+      "retrievedOn": "2026-11-07"
+    }
+  ],
+  "rules": [
+    {
+      "id": "ny-work-camera",
+      "state": "NY",
+      "mode": "camera",
+      "title": "Work-zone camera",
+      "program": "NY automated work-zone program",
+      "violation": "speeding",
+      "method": "ny-work-camera",
+      "sourceIds": ["ny-work"],
+      "scope": "Eligible operational NY work-zone program; not every construction project.",
+      "notes": "Prior offenses are counted within the applicable 18-month period. Workers, signs, program operation and the recorded violation must satisfy program requirements.",
+      "reviewStatus": "reviewed",
+      "verifiedOn": "2026-11-07",
+      "reviewUntil": "2026-12-07",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "basis": "Civil program penalty",
+      "excludes": "Late/default fees, court costs, surcharges, other charges, insurance changes and nonmonetary consequences are not totaled. Local reductions or payment alternatives may apply."
+    },
+    {
+      "id": "ny-school-camera",
+      "state": "NY",
+      "mode": "camera",
+      "title": "NYC school-zone camera",
+      "program": "NYC school speed-zone program",
+      "violation": "speeding",
+      "method": "ny-school-camera",
+      "sourceIds": ["ny-school"],
+      "scope": "New York City only; not a statewide school-camera rate.",
+      "notes": "This is a statutory cap, not a payable-total prediction. Camera program conditions are separate from officer-issued school-zone citations.",
+      "reviewStatus": "reviewed",
+      "verifiedOn": "2026-11-07",
+      "reviewUntil": "2026-12-07",
+      "effectiveFrom": null,
+      "effectiveTo": "2030-07-01",
+      "basis": "Civil program penalty",
+      "excludes": "Late/default fees, court costs, surcharges, other charges, insurance changes and nonmonetary consequences are not totaled. Local reductions or payment alternatives may apply."
+    },
+    {
+      "id": "ny-officer",
+      "state": "NY",
+      "mode": "officer",
+      "title": "Officer-issued speeding citation",
+      "program": "Ordinary / qualifying work-zone speeding",
+      "violation": "speeding",
+      "method": "ny-officer",
+      "sourceIds": ["ny-speed"],
+      "scope": "VTL §1180(h)(1), (3) and (5); passenger-vehicle scenario.",
+      "notes": "Correct charging subsection matters. School-zone, hazardous-material and defective commercial-vehicle cases are excluded. Possible imprisonment and license consequences are not priced.",
+      "reviewStatus": "reviewed",
+      "verifiedOn": "2026-11-07",
+      "reviewUntil": "2026-12-07",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "basis": "Statutory base fine / prepayment fine",
+      "excludes": "Late/default fees, court costs, surcharges, other charges, insurance changes and nonmonetary consequences are not totaled. Local reductions or payment alternatives may apply."
+    },
+    {
+      "id": "pa-work-camera",
+      "state": "PA",
+      "mode": "camera",
+      "title": "Work-zone camera",
+      "program": "PA active work-zone speed safety cameras",
+      "violation": "speeding",
+      "method": "pa-work-camera",
+      "sourceIds": ["pa-work"],
+      "scope": "Eligible active, operating work-zone system.",
+      "notes": "First warning and the subsequent 15-day condition matter. No operating-record points under this civil program.",
+      "reviewStatus": "reviewed",
+      "verifiedOn": "2026-11-07",
+      "reviewUntil": "2026-12-07",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "basis": "Civil program penalty",
+      "excludes": "Late/default fees, court costs, surcharges, other charges, insurance changes and nonmonetary consequences are not totaled. Local reductions or payment alternatives may apply."
+    },
+    {
+      "id": "pa-officer",
+      "state": "PA",
+      "mode": "officer",
+      "title": "Officer-issued speeding citation",
+      "program": "75 Pa.C.S. §3362",
+      "violation": "speeding",
+      "method": "pa-officer",
+      "sourceIds": ["pa-speed", "pa-double"],
+      "scope": "Ordinary speeding; conditional doubling in staffed, officially signed active work zones.",
+      "notes": "The fine is only one portion of a payable ticket. License suspension, points, safe-speed, reckless and injury charges require separate assessment.",
+      "reviewStatus": "reviewed",
+      "verifiedOn": "2026-11-07",
+      "reviewUntil": "2026-12-07",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "basis": "Statutory base fine / prepayment fine",
+      "excludes": "Late/default fees, court costs, surcharges, other charges, insurance changes and nonmonetary consequences are not totaled. Local reductions or payment alternatives may apply."
+    },
+    {
+      "id": "md-work-camera",
+      "state": "MD",
+      "mode": "camera",
+      "title": "Work-zone camera",
+      "program": "Maryland work-zone speed control",
+      "violation": "speeding",
+      "method": "md-work-camera",
+      "sourceIds": ["md-work"],
+      "scope": "Transportation §21-810 only; not local school/residential/I-83 camera programs.",
+      "notes": "Worker presence doubles the applicable tier. A police citation for the same violation changes camera liability. No license points under this civil provision.",
+      "reviewStatus": "reviewed",
+      "verifiedOn": "2026-11-07",
+      "reviewUntil": "2026-12-07",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "basis": "Civil program penalty",
+      "excludes": "Late/default fees, court costs, surcharges, other charges, insurance changes and nonmonetary consequences are not totaled. Local reductions or payment alternatives may apply."
+    },
+    {
+      "id": "va-camera",
+      "state": "VA",
+      "mode": "camera",
+      "title": "Mailed speed-camera notice",
+      "program": "Virginia eligible work / school zone",
+      "violation": "speeding",
+      "method": "va-camera",
+      "sourceIds": ["va-camera"],
+      "scope": "This calculator models eligible work and school zones only, not every category authorized by the statute.",
+      "notes": "Shows the statutory cap; the actual local rate may be lower. Work-zone camera liability requires workers present. No driving-record conviction for a qualifying mailed notice.",
+      "reviewStatus": "reviewed",
+      "verifiedOn": "2026-11-07",
+      "reviewUntil": "2026-12-07",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "basis": "Civil program penalty",
+      "excludes": "Late/default fees, court costs, surcharges, other charges, insurance changes and nonmonetary consequences are not totaled. Local reductions or payment alternatives may apply."
+    },
+    {
+      "id": "va-officer",
+      "state": "VA",
+      "mode": "officer",
+      "title": "Officer-issued speeding citation",
+      "program": "Virginia prepayable speeding",
+      "violation": "speeding",
+      "method": "va-officer",
+      "sourceIds": ["va-speed", "va-reckless"],
+      "scope": "Prepayable ordinary and specified school/work-zone offenses.",
+      "notes": "Reckless-driving thresholds stop the routine estimate. Prepayment availability, charging section, court costs and special residential-zone rules need separate checking.",
+      "reviewStatus": "reviewed",
+      "verifiedOn": "2026-11-07",
+      "reviewUntil": "2026-12-07",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "basis": "Statutory base fine / prepayment fine",
+      "excludes": "Late/default fees, court costs, surcharges, other charges, insurance changes and nonmonetary consequences are not totaled. Local reductions or payment alternatives may apply."
+    },
+    {
+      "id": "ca-pilot-camera",
+      "state": "CA",
+      "mode": "camera",
+      "title": "Local pilot speed camera",
+      "program": "California AB 645 pilot",
+      "violation": "speeding",
+      "method": "ca-pilot-camera",
+      "sourceIds": ["ca-fines", "ca-scope"],
+      "scope": "Designated pilot jurisdictions: Los Angeles, San Jose, Oakland, Glendale, Long Beach, and the City and County of San Francisco. Eligible local streets only.",
+      "notes": "Not a nationwide or statewide highway program. No assumption that a jurisdiction has activated cameras. First 60 days at a new location require warnings; first vehicle violation at 11–15 mph over is also a warning. Income-based reductions are not calculated.",
+      "reviewStatus": "reviewed",
+      "verifiedOn": "2026-11-07",
+      "reviewUntil": "2026-12-07",
+      "effectiveFrom": "2024-01-01",
+      "effectiveTo": "2032-01-01",
+      "basis": "Civil program penalty",
+      "excludes": "Late/default fees, court costs, surcharges, other charges, insurance changes and nonmonetary consequences are not totaled. Local reductions or payment alternatives may apply."
+    }
+  ],
+  "holds": [
+    {
+      "state": "NJ",
+      "reason": "Current monetary schedule and present camera authority require review; dated 2021 schedule and expired pilot are not treated as current penalties.",
+      "sourceIds": ["nj-reference", "nj-pilot"]
+    },
+    {
+      "state": "DC",
+      "reason": "2026 amendment requires adopted-text review before monetary estimates are enabled.",
+      "sourceIds": ["dc-version"]
+    }
+  ]
+}

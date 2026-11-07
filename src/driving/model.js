@@ -1,5 +1,6 @@
 /** Shared, dependency-free navigation and enforcement policy. Coordinates are [lon, lat]. */
-export const STATES = ['NY', 'NJ', 'PA'];
+import { JURISDICTIONS, validRoad } from './jurisdictions.js';
+export const STATES = JURISDICTIONS.map((state) => state.code);
 export const ROUTES = ['I-80', 'I-95', 'Harlem–Tyrone corridor'];
 export const STATUSES = [
   'fixed',
@@ -87,7 +88,7 @@ export function normalizeRecord(r) {
     !r ||
     !/^[a-zA-Z0-9:._-]{1,160}$/.test(r.id || '') ||
     !STATES.includes(r.state) ||
-    !ROUTES.includes(r.route) ||
+    !validRoad(r.route) ||
     !TYPES.includes(r.type) ||
     !STATUSES.includes(r.status)
   )

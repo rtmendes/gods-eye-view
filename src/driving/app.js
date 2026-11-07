@@ -15,8 +15,20 @@ import {
   lines,
 } from './model.js';
 import { demoTrip } from './demo.js';
+import { JURISDICTIONS } from './jurisdictions.js';
 
 const $ = (id) => document.getElementById(id);
+for (const select of [
+  $('state-filter'),
+  document.querySelector('#report-form [name="state"]'),
+]) {
+  const selected = select.value;
+  select.replaceChildren();
+  if (select.id === 'state-filter') select.add(new Option('All states', ''));
+  for (const state of JURISDICTIONS)
+    select.add(new Option(`${state.code} · ${state.name}`, state.code));
+  select.value = selected;
+}
 const message = (text) => {
   $('message').textContent = text;
 };
@@ -346,6 +358,14 @@ async function refreshInventory() {
       signal: AbortSignal.timeout(15000),
     });
     if (destroyed) return;
+    const routeSelect = $('route-filter');
+    const selectedRoute = routeSelect.value;
+    routeSelect.replaceChildren(new Option('All roads', ''));
+    for (const road of [
+      ...new Set(snapshot.records.map((record) => record.route)),
+    ].sort())
+      routeSelect.add(new Option(road, road));
+    routeSelect.value = selectedRoute;
     session.setRecords(snapshot.records);
     renderInventory();
     const imports = snapshot.sources

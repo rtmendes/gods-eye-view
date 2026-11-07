@@ -3,12 +3,8 @@ import { mkdirSync, readFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import {
-  normalizeRecord,
-  STATES,
-  ROUTES,
-  TYPES,
-} from '../../src/driving/model.js';
+import { normalizeRecord, STATES, TYPES } from '../../src/driving/model.js';
+import { validRoad } from '../../src/driving/jurisdictions.js';
 
 export const DEFAULT_DB = fileURLToPath(
   new URL('../../.gev-data/enforcement.sqlite', import.meta.url),
@@ -55,7 +51,7 @@ export function openStore(path = process.env.GEV_ENFORCEMENT_DB || DEFAULT_DB) {
       return {
         schemaVersion: 1,
         generatedAt: new Date().toISOString(),
-        scope: 'NY/NJ/PA · I-80 and I-95',
+        scope: 'United States · partial curated coverage; see /road/',
         records: db
           .prepare('SELECT body FROM records ORDER BY id')
           .all()
@@ -156,7 +152,7 @@ export function validateReport(input) {
   const text = (s, n) => (typeof s === 'string' ? s.trim().slice(0, n) : '');
   if (
     !STATES.includes(input?.state) ||
-    !ROUTES.includes(input?.route) ||
+    !validRoad(input?.route) ||
     !TYPES.includes(input?.type)
   )
     throw new Error('Choose a supported state, route and type');

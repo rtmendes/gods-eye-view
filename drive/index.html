@@ -14,8 +14,9 @@
     <header class="drive-header">
       <a class="brand" href="/"
         >◉ <span>GOD’S EYE VIEW <small>DRIVE</small></span></a
-      ><span class="scope">I-80 / I-95 · NY, NJ, PA</span
-      ><a href="/">Explore globe ↗</a>
+      ><span class="scope">USA · coverage varies by state</span
+      ><a href="/road/">National coverage ↗</a
+      ><a href="/road/fines/">Fines explorer ↗</a>
     </header>
     <main>
       <section id="map" aria-label="Highway enforcement map"></section>
@@ -171,10 +172,12 @@
                 <option>PA</option>
               </select></label
             ><label
-              >Highway<select name="route">
-                <option>I-80</option>
-                <option>I-95</option>
-              </select></label
+              >Road<input
+                name="route"
+                required
+                maxlength="100"
+                placeholder="I-80, US-1, or a local road"
+                value="I-80" /></label
             ><label
               >Type<select name="type">
                 <option value="work-zone">Work-zone camera</option>

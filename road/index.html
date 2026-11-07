@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#102e35" />
+    <title>Road intelligence · God's Eye View</title>
+  </head>
+  <body data-page="national">
+    <header>
+      <a class="brand" href="/road/">◉ GOD’S EYE VIEW <span>ROAD</span></a>
+      <nav aria-label="Main">
+        <a aria-current="page" href="/road/">National coverage</a
+        ><a href="/road/fines/">Fines explorer</a
+        ><a href="/equipment/">Equipment map</a>
+      </nav>
+    </header>
+    <main>
+      <div class="eyebrow">A NATIONAL PLATFORM · AN EVIDENCE-FIRST ROLLOUT</div>
+      <h1>Know what’s ahead.<br /><span>Know what we know.</span></h1>
+      <p class="lede">
+        Camera sites, work-zone intelligence, and program-specific penalties.
+        Explore the country with a clear view of where the data has been
+        curated—and where it hasn’t.
+      </p>
+      <div id="metrics" class="metrics"></div>
+      <div class="callout">
+        National support is enabled for 50 states and DC. Equipment coverage
+        remains partial in New York and Pennsylvania. An empty state means
+        <strong>not curated</strong>, never “no enforcement.”
+      </div>
+      <section aria-labelledby="coverage-heading">
+        <div class="section-top">
+          <div>
+            <div class="eyebrow">01 / COVERAGE ATLAS</div>
+            <h2 id="coverage-heading">Choose a state.</h2>
+          </div>
+          <label
+            >Find a state<input
+              id="state-search"
+              type="search"
+              placeholder="Name or abbreviation"
+          /></label>
+        </div>
+        <div class="legend">
+          <span class="key reviewed"></span> Some reviewed penalty rules
+          <span class="key pending"></span> Legal review pending
+        </div>
+        <div
+          id="state-grid"
+          class="state-grid"
+          aria-label="State coverage"
+        ></div>
+        <p id="search-status" role="status" class="muted"></p>
+        <div id="state-detail" class="panel" aria-live="polite"></div>
+        <p class="muted">
+          Counts describe the bundled snapshot, not a live feed.
+          <span id="snapshot-date"></span> Monitoring-site points are not
+          verified citation cameras. Commercial source licensing remains under
+          review.
+        </p>
+      </section>
+      <section id="hardware" aria-labelledby="hardware-heading">
+        <div class="eyebrow">02 / APP + HARDWARE</div>
+        <h2 id="hardware-heading">Different signals. One clear picture.</h2>
+        <div class="three-col">
+          <article class="panel">
+            <div class="icon">⌖</div>
+            <h3>The app</h3>
+            <p>
+              GPS, reviewed location records, route direction and source
+              freshness provide context. Phone hardware cannot detect police
+              radar or laser.
+            </p>
+          </article>
+          <article class="panel">
+            <div class="icon">≋</div>
+            <h3>Optional sensors</h3>
+            <p>
+              A supported detector can contribute a signal observation. A
+              compatible dashcam may contribute a speed-sign observation.
+              Neither proves a camera’s position or activation.
+            </p>
+          </article>
+          <article class="panel">
+            <div class="icon">✓</div>
+            <h3>Evidence before publication</h3>
+            <p>
+              Short-lived device observations stay on the device. A reviewed
+              location and road association are required before equipment or
+              speed-limit records change.
+            </p>
+          </article>
+        </div>
+        <div class="panel simulator">
+          <div>
+            <span class="tag">LOCAL DEMO · NO DEVICE CONNECTED</span>
+            <h3>Try the observation interface.</h3>
+            <p>
+              This simulator exercises the integration contract. No manufacturer
+              integration, Bluetooth connection or live detection is active.
+            </p>
+          </div>
+          <div class="controls">
+            <label
+              >Observation<select id="event-kind">
+                <option value="radar-signal">Radar signal</option>
+                <option value="laser-signal">Laser signal</option>
+                <option value="speed-sign-observation">
+                  45 mph speed-sign observation
+                </option>
+              </select></label
+            ><button id="simulate">Simulate observation</button
+            ><button id="clear-events" class="secondary">Clear</button>
+          </div>
+          <p id="hardware-status" role="status" aria-live="polite">
+            No active observations. No location collection.
+          </p>
+        </div>
+      </section>
+      <section id="gear" aria-labelledby="gear-heading">
+        <div class="eyebrow">03 / EQUIPMENT RESEARCH</div>
+        <h2 id="gear-heading">Hardware is optional.</h2>
+        <p>
+          Manufacturer references below explain device capabilities. They are
+          not evidence of compatibility with our app.
+        </p>
+        <div id="hardware-catalog" class="two-col"></div>
+        <div class="panel">
+          <h3>Commercial offers</h3>
+          <p>
+            No affiliate offers or referral tracking are active. Approved offers
+            must disclose the affiliate relationship and stay outside driving
+            alerts. Equipment recommendations never influence source confidence.
+          </p>
+          <label class="check"
+            ><input id="parked" type="checkbox" /> I am parked and not using
+            driving guidance.</label
+          >
+          <div id="offers" role="status"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      God’s Eye View Road · Sources and review status travel with the data.
+      <a href="/road/fines/">Explore speeding penalties →</a>
+    </footer>
+    <script type="module" src="/src/road/national.js"></script>
+  </body>
+</html>
