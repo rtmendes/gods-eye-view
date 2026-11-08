@@ -233,3 +233,7 @@ evidence, long zones, speech deduplication, atomic imports, report moderation,
 source parsing and same-origin/body-size API limits. Replay and mocked GPS browser
 checks are useful before any field testing; they do not establish road-tested
 navigation reliability.
+
+## Project requirements and operations
+
+See the [road-intelligence documentation index](road-intelligence/README.md) for the PRD, technical specification, SOP, official data-access checklist, application drafts and access tracker. These distinguish implemented capabilities from planned Google/agency integrations and do not claim live enforcement activation.

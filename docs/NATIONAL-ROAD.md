@@ -57,3 +57,7 @@ Explicit address searches go to public Nominatim, route endpoints to the FOSSGIS
 Travel times exclude live traffic. Route matching uses the same-origin published inventory, with 100/250/500 m corridor filters, source direction and date status. Opposite-direction and historical records are excluded by default. Nearby references do not establish lane association, device activation or precise equipment mounting. Source limits and highway mileposts remain distinct from trip distance. Missing records mean unknown coverage. Refresh reloads the published snapshot, not upstream agency feeds.
 
 Validation: `npm run qa:route` exercises endpoint selection, alternatives, direction/history filters, snapshot refresh, mobile layout, service failures and cancellation against controlled fixtures. `src/driving/routing-planner.test.mjs` checks matching and public-service clients.
+
+## Project requirements and operations
+
+See the [road-intelligence documentation index](road-intelligence/README.md) for the PRD, technical specification, SOP, official data-access checklist, application drafts and access tracker. These distinguish implemented capabilities from planned Google/agency integrations and do not claim live enforcement activation.

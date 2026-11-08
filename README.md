@@ -28,6 +28,8 @@ _“pretty cool”_ — [Brendan Eich](https://x.com/BrendanEich/status/20945920
 
 </div>
 
+**Road-intelligence extension:** [PRD, technical specification, SOP and data-access applications](docs/road-intelligence/README.md).
+
 ---
 
 <div align="center">

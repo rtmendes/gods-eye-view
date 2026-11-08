@@ -1,0 +1,30 @@
+platform,jurisdictions,official_entry_url,status,cost_basis,next_action,owner,submitted_at,request_reference,approved_scope,commercial_reuse,renewal_or_expiry,last_reviewed
+Google Maps,US,https://console.cloud.google.com/,Account reported; setup unverified,Metered; current allowances must be checked,Enable Maps JavaScript and Routes; billing/quota/key review,Unassigned,,,,Not cleared,,2026-11-08
+PennDOT 511PA,PA,https://paiedprod.powerappsportals.us/DataFeedRequestForm/,Not submitted,Free feeds documented; video agreement and bandwidth separate,Request RCRS/camera metadata; video only with agreement,Unassigned,,,,Not cleared,,2026-11-08
+511NY / NYSDOT,NY,https://511ny.org/,Process needs confirmation,Fee and reuse terms unverified,Ask replacement developer process; legacy docs redirect,Unassigned,,,,Not cleared,,2026-11-08
+NYC DOT Open Data,NY,https://data.cityofnewyork.us/Transportation/DOT-Traffic-Speeds/i4gi-tjb9,Public dataset; not integrated,Public access; terms and units/timezone must be reviewed,Validate freshness units timezone; not activation,Unassigned,,,,Not cleared,,2026-11-08
+NY AWZSE,NY,https://www.ny.gov/work-zone-safety-awareness/automated-work-zone-speed-enforcement-program,Public schedule import configured,Public page; reuse scope not commercially cleared,Ask whether actual operating telemetry exists,Unassigned,,,,Not cleared,,2026-11-08
+511NJ / NJDOT,NJ,https://511nj.org/,Process needs confirmation,Free API and stream rights unverified,Request correct developer and video-sharing application,Unassigned,,,,Not cleared,,2026-11-08
+Port Authority,NY;NJ,https://www.panynj.gov/alerts-advisories/advisories.html,Not requested,Unverified,Ask data owner and crossing camera/incident rights,Unassigned,,,,Not cleared,,2026-11-08
+New England 511,ME;NH,https://newengland511.org/,Process needs confirmation,Unverified,Ask state scopes and third-party data exclusions,Unassigned,,,,Not cleared,,2026-11-08
+Mass511 / MassDOT,MA,https://mass511.com/,Process needs confirmation,Unverified,Request current developer/video access path,Unassigned,,,,Not cleared,,2026-11-08
+RIDOT,RI,https://www.dot.ri.gov/travel/cameras/,Not requested,Unverified,Request camera metadata and imagery permission,Unassigned,,,,Not cleared,,2026-11-08
+CTroads,CT,https://www.ctroads.org/developers/doc,Registration/key pending,Fee terms unverified; 10 calls/60s documented,Register and request key; ask camera/flow separately,Unassigned,,,,Not cleared,,2026-11-08
+DelDOT,DE,https://deldot.gov/map/,Not requested,Unverified,Request documented event/camera API and terms,Unassigned,,,,Not cleared,,2026-11-08
+MD CHART,MD,https://chart.maryland.gov/,Not requested,Unverified,Request feed/video sharing scope,Unassigned,,,,Not cleared,,2026-11-08
+DDOT / DC Open Data,DC,https://opendata.dc.gov/,Not requested,Dataset-specific review needed,Identify current enforcement owner/dataset and reuse terms,Unassigned,,,,Not cleared,,2026-11-08
+Virginia 511 / VDOT,VA,https://511.vdot.virginia.gov/,Not requested,Unverified,Request current feed and camera/flow rights,Unassigned,,,,Not cleared,,2026-11-08
+DriveNC / NCDOT,NC,https://www.drivenc.gov/,Not requested,Unverified,Ask developer process and data ownership,Unassigned,,,,Not cleared,,2026-11-08
+SC511 / SCDOT,SC,https://www.scdot.org/,Not requested; SC511 TLS retrieval failed,Unverified,Confirm current SC511 portal and feed access; retain TLS validation,Unassigned,,,,Not cleared,,2026-11-08
+511GA,GA,https://511ga.org/developers/doc,Registration/key pending,Fee terms unverified; 10 calls/60s documented,Register/request key; confirm video/public/commercial permissions,Unassigned,,,,Not cleared,,2026-11-08
+FL511 / FDOT,FL,https://fl511.com/,Process needs confirmation,Unverified,Request current docs and video-sharing terms,Unassigned,,,,Not cleared,,2026-11-08
+DriveTexas / TxDOT,TX,https://drivetexas.org/,Not requested,Unverified,Identify state/district feeds and third-party rights,Unassigned,,,,Not cleared,,2026-11-08
+Caltrans CWWP2,CA,https://cwwp2.dot.ca.gov/documentation/cctv/cctv.htm,Public downloads; not imported,No charge documented; conditions apply,Review conditions and pilot district fields/media use,Unassigned,,,,Not cleared,,2026-11-08
+511 SF Bay,CA,https://511.org/open-data,Token not requested,Free token data documented; attribution required,Request token via portal; confirm traffic/media scopes,Unassigned,,,,Not cleared,,2026-11-08
+USDOT WZDx registry,US,https://datahub.transportation.gov/Roadways-and-Bridges/Work-Zone-Data-Exchange-WZDx-Feed-Registry/69qe-yiui,Discovery only,Producer-specific terms,Select current producer feeds and review rights/cadence,Unassigned,,,,Not cleared,,2026-11-08
+OSM / Nominatim / tiles,US,https://www.openstreetmap.org/copyright,Current planner services; optional enrichment,License/service-policy limits; not unlimited hosted service,Review production scale and attribution,Unassigned,,,,Not cleared,,2026-11-08
+Waze for Cities,US,https://www.waze.com/wazeforcities/,Optional; eligibility not established,Eligibility and rights unverified,Ask whether actual entity qualifies; do not assume government status,Unassigned,,,,Not cleared,,2026-11-08
+TomTom alternative,US,https://developer.tomtom.com/,Optional; not selected for hosted planner,Current allowances and licensing must be checked,Evaluate only if Google approach unsuitable,Unassigned,,,,Not cleared,,2026-11-08
+HERE alternative,US,https://www.here.com/developer,Optional; not requested,Unverified,Evaluate only if needed,Unassigned,,,,Not cleared,,2026-11-08
+Uniden hardware,US,https://uniden.com/,Optional; no authorized adapter,SDK access/fees unverified,Ask official SDK/permissions; no private database extraction,Unassigned,,,,Not cleared,,2026-11-08
+Escort hardware,US,https://www.escortradar.com/,Optional; no authorized adapter,SDK access/fees unverified,Ask official SDK/permissions; no private database extraction,Unassigned,,,,Not cleared,,2026-11-08
