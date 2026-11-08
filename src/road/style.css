@@ -824,3 +824,92 @@ footer a {
   font-weight: 700;
   text-decoration: none;
 }
+
+/* Rendered application guide and state/location checklists. */
+.access-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 28px 0;
+}
+.access-tabs button[aria-pressed='false'] {
+  background: #fff;
+  color: var(--ink, #102e35);
+  border: 1px solid #b8cdca;
+}
+.access-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 16px 0;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.access-check input {
+  flex: 0 0 19px;
+  width: 19px;
+  height: 19px;
+  margin-top: 4px;
+}
+.access-check span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.access-provider,
+.access-location {
+  margin: 16px 0;
+}
+.access-provider summary,
+.access-location summary {
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+.rendered-document {
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.rendered-document h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+.rendered-document h2 {
+  margin-top: 36px;
+}
+.rendered-document h3 {
+  margin-top: 28px;
+}
+.rendered-document blockquote {
+  margin: 12px 0;
+  padding: 12px 20px;
+  border-left: 4px solid #007a6c;
+  background: #f1f6f2;
+}
+.rendered-document pre {
+  white-space: pre-wrap;
+  padding: 16px;
+  background: #eef3f0;
+  overflow-wrap: anywhere;
+}
+.rendered-document li {
+  margin: 10px 0;
+}
+.rendered-document .source-table-wrap {
+  max-width: 100%;
+}
+@media print {
+  header,
+  footer,
+  .access-tabs,
+  #print-access,
+  #clear-access-progress {
+    display: none;
+  }
+  .rendered-document {
+    border: 0;
+    padding: 0;
+  }
+  main {
+    max-width: none;
+  }
+}

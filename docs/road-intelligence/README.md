@@ -11,6 +11,10 @@ Updated November 8, 2026. Scope: the road-intelligence extension in `rtmendes/go
 - [Access tracker](access-tracker.csv): spreadsheet-friendly status/owner tracking for the platform applications. Credentials and private application correspondence must not go into this file.
 - [Existing implementation guide](../NATIONAL-ROAD.md), [foreground driving guide](../DRIVING.md), [source registry](../../curation/sources/README.md), [law curation](../../curation/laws/README.md).
 
+## Rendered application checklists
+
+[Open the HTML access workspace](https://harlem-tyrone-equipment-map.mahara77.chatgpt.site/road/access/). It renders the full guide, application drafts, PRD, specification and SOP, with all 51 state/district views and each published location. Personal ticks stay in browser localStorage and do not change agency approval or shared feed status. Regenerate `curation/sources/access.json` after editing the tracker/guide with `node scripts/enforcement/generate-access.mjs`. New accepted locations appear after source-index regeneration, build and publication, not merely account activation.
+
 ## Current product links
 
 - [Route planner](https://harlem-tyrone-equipment-map.mahara77.chatgpt.site/road/route/)
