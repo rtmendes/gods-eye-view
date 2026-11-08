@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#102e35" />
+    <title>State fines explorer · God's Eye View</title>
+  </head>
+  <body data-page="fines">
+    <header>
+      <a class="brand" href="/road/">◉ GOD’S EYE VIEW <span>ROAD</span></a>
+      <nav aria-label="Main">
+        <a href="/road/route/">Route planner</a>
+        <a href="/road/">National coverage</a
+        ><a aria-current="page" href="/road/fines/">Fines explorer</a
+        ><a href="/road/sources/">All sources</a
+        ><a href="/equipment/">Equipment map</a>
+        <a href="/road/access/">Access checklists</a>
+      </nav>
+    </header>
+    <main>
+      <div class="eyebrow">STATE BY STATE / CAMERA VS OFFICER</div>
+      <h1>The same road.<br /><span>Different penalties.</span></h1>
+      <p class="lede">
+        Explore potential speeding penalties for a specific program and
+        scenario. A base fine, a statutory cap and a payable ticket total are
+        different figures.
+      </p>
+      <div id="legal-coverage" class="callout"></div>
+      <div class="explorer">
+        <aside class="panel scenario">
+          <h2>Your scenario</h2>
+          <form id="scenario-form">
+            <label
+              >State or district<select id="state" name="state"></select></label
+            ><label
+              >Compare as of<input
+                id="as-of"
+                name="date"
+                type="date"
+                required /></label
+            ><label
+              >Road context<select id="zone" name="zone">
+                <option value="ordinary">Ordinary road</option>
+                <option value="work" selected>Work zone</option>
+                <option value="school">School speed zone</option>
+              </select></label
+            >
+            <label
+              >Road classification<select id="road-class">
+                <option value="other">Other road</option>
+                <option value="controlled-access">
+                  Multi-lane limited / controlled access
+                </option>
+                <option value="interstate">Interstate / Maine Turnpike</option>
+              </select></label
+            >
+            <div class="two-col">
+              <label
+                >Posted limit (mph)<input
+                  id="limit"
+                  type="number"
+                  min="5"
+                  max="85"
+                  value="55"
+                  step="1"
+                  required /></label
+              ><label
+                >Recorded speed (mph)<input
+                  id="speed"
+                  type="number"
+                  min="0"
+                  max="200"
+                  value="70"
+                  step="1"
+                  required
+              /></label>
+            </div>
+            <label
+              >Prior qualifying offenses<input
+                id="prior"
+                type="number"
+                min="0"
+                max="20"
+                value="0"
+                step="1"
+                required
+            /></label>
+            <p class="muted small">
+              Use each program’s qualifying offense window. Camera and officer
+              histories may differ; change this input for each comparison.
+            </p>
+            <label
+              >Workers present<select id="workers">
+                <option value="unknown">Unknown</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select></label
+            ><label class="check"
+              ><input id="work-signs" type="checkbox" /> Required official
+              work-zone signs were present.</label
+            ><label class="check"
+              ><input id="warning-matured" type="checkbox" /> PA: alleged later
+              offense occurred at least 15 days after mailing of the first
+              warning.</label
+            ><label class="check"
+              ><input id="work-notice" type="checkbox" /> Texas: the citation
+              states workers were present.</label
+            ><label class="check"
+              ><input id="confirmed" type="checkbox" /> Camera: authorized,
+              operational program; required timing, signs, and initial warning
+              periods have been checked.</label
+            >
+            <p class="muted small">
+              Do not check this merely because a camera or construction project
+              appears on a map. This tool does not determine whether a violation
+              occurred.
+            </p>
+          </form>
+        </aside>
+        <div class="comparison">
+          <div class="section-top">
+            <div>
+              <div class="eyebrow" id="state-code">STATE PROFILE</div>
+              <h2 id="state-name"></h2>
+            </div>
+            <button id="share" class="secondary">Copy scenario link</button>
+          </div>
+          <p id="share-status" role="status" class="muted"></p>
+          <label>Camera program<select id="camera-rule"></select></label>
+          <div id="results" class="two-col" aria-live="polite"></div>
+          <section id="camera-policy" class="panel" hidden></section>
+          <section class="panel">
+            <h3>What this comparison includes</h3>
+            <p>
+              Speeding only, for the program and charging provisions shown.
+              Monetary estimates exclude unmodeled court costs, surcharges, late
+              fees, insurance effects and other offenses. A warning or an
+              unpriced scenario is not permission to exceed a posted limit.
+            </p>
+            <p>
+              Police citations may carry points, license action or criminal
+              consequences that civil camera notices do not. These outcomes vary
+              by charge and are not converted into dollars.
+            </p>
+            <p class="muted">
+              Informational comparison, not legal advice or an adjudication of a
+              ticket. The citation and controlling law govern.
+            </p>
+          </section>
+          <section class="panel">
+            <h3>Official sources & review record</h3>
+            <div id="law-sources"></div>
+            <p id="review-window" class="muted"></p>
+            <a id="state-portal" target="_blank" rel="noopener noreferrer"
+              >Open official legislative portal ↗</a
+            >
+            <p class="muted small">
+              Portal links are research starting points, not verified penalty
+              rules. Blank effective dates mean not established in this review;
+              they are never replaced with the retrieval date.
+            </p>
+          </section>
+        </div>
+      </div>
+      <section>
+        <h2>Explore all states</h2>
+        <p>
+          All 50 states and DC are selectable. “Review pending” means no
+          monetary estimate is published.
+        </p>
+        <label class="check"
+          ><input id="priority-only" type="checkbox" checked /> Show the East
+          Coast, DC, Texas and California priority cohort (including
+          Pennsylvania).</label
+        >
+        <p id="priority-summary" class="muted"></p>
+        <div id="state-grid" class="state-grid"></div>
+      </section>
+    </main>
+    <footer>
+      God’s Eye View Road · No affiliate offers appear in this component.
+      <a href="/road/">National coverage →</a>
+    </footer>
+    <script type="module" src="/src/road/fines.js"></script>
+  </body>
+</html>

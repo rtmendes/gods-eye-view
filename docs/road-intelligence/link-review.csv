@@ -1,0 +1,82 @@
+url,checked_at,method,http_status_or_result,interpretation
+https://511.org/open-data,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://511.org/open-data/traffic,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://511.vdot.virginia.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://511ga.org/developers/doc,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://511ga.org/my511/register,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://511nj.org/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://511ny.org/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://511ny.org/developers/doc,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://511pa.com/cctv,2026-11-08T10:15:25.983495+00:00,HEAD,404,"Unconfirmed by HEAD; may be method restriction, access gate or transient failure; not proof link is invalid"
+https://chart.maryland.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,405,"Unconfirmed by HEAD; may be method restriction, access gate or transient failure; not proof link is invalid"
+https://cloud.google.com/maps-platform/terms,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://console.cloud.google.com/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://cwwp2.dot.ca.gov/documentation/cctv/cctv.htm,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://data.cityofnewyork.us/Transportation/DOT-Traffic-Speeds/i4gi-tjb9,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://data.texas.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://datahub.transportation.gov/Roadways-and-Bridges/Work-Zone-Data-Exchange-WZDx-Feed-Registry/69qe-yiui,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://ddot.dc.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://deldot.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,403,"Unconfirmed by HEAD; may be method restriction, access gate or transient failure; not proof link is invalid"
+https://deldot.gov/map/,2026-11-08T10:15:25.983495+00:00,HEAD,403,"Unconfirmed by HEAD; may be method restriction, access gate or transient failure; not proof link is invalid"
+https://developer.tomtom.com/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://developers.google.com/maps/documentation/javascript/get-api-key,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://developers.google.com/maps/documentation/javascript/trafficlayer,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://developers.google.com/maps/documentation/routes/get-api-key,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://developers.google.com/maps/documentation/routes/policies,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://docs.tomtom.com/pricing/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://dot.ca.gov/conditions-of-use,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://drivetexas.org/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://fl511.com/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://github.com/rtmendes/gods-eye-view,2026-11-08T10:15:25.983495+00:00,HEAD,unconfirmed,"Unconfirmed by HEAD; may be method restriction, access gate or transient failure; not proof link is invalid"
+https://github.com/rtmendes/gods-eye-view/pull/2,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://github.com/rtmendes/gods-eye-view/tree/feat/corridor-driving,2026-11-08T10:15:25.983495+00:00,HEAD,unconfirmed,"Unconfirmed by HEAD; may be method restriction, access gate or transient failure; not proof link is invalid"
+https://github.com/usdot-jpo-ode/wzdx,2026-11-08T10:15:25.983495+00:00,HEAD,unconfirmed,"Unconfirmed by HEAD; may be method restriction, access gate or transient failure; not proof link is invalid"
+https://harlem-tyrone-equipment-map.mahara77.chatgpt.site/equipment/,2026-11-08T10:15:25.983495+00:00,HEAD,401,Expected private Site access gate; audience was not changed
+https://harlem-tyrone-equipment-map.mahara77.chatgpt.site/road/,2026-11-08T10:15:25.983495+00:00,HEAD,401,Expected private Site access gate; audience was not changed
+https://harlem-tyrone-equipment-map.mahara77.chatgpt.site/road/fines/,2026-11-08T10:15:25.983495+00:00,HEAD,401,Expected private Site access gate; audience was not changed
+https://harlem-tyrone-equipment-map.mahara77.chatgpt.site/road/route/,2026-11-08T10:15:25.983495+00:00,HEAD,401,Expected private Site access gate; audience was not changed
+https://harlem-tyrone-equipment-map.mahara77.chatgpt.site/road/sources/,2026-11-08T10:15:25.983495+00:00,HEAD,401,Expected private Site access gate; audience was not changed
+https://mapsplatform.google.com/pricing/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://mass511.com/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://newengland511.org/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://nominatim.openstreetmap.org/search,2026-11-08T10:15:25.983495+00:00,HEAD,403,"Unconfirmed by HEAD; may be method restriction, access gate or transient failure; not proof link is invalid"
+https://opendata.dc.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://operations.osmfoundation.org/policies/nominatim/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://operations.osmfoundation.org/policies/tiles/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://paiedprod.powerappsportals.us/DataFeedRequestForm/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://quickmap.dot.ca.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://sc511.com/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://uniden.com/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://wiki.openstreetmap.org/wiki/Tag:highway%3Dspeed_camera,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.ctroads.org/developers/doc,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.ctroads.org/my511/register,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.dot.nh.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,403,"Unconfirmed by HEAD; may be method restriction, access gate or transient failure; not proof link is invalid"
+https://www.dot.ny.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.dot.ri.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.dot.ri.gov/travel/cameras/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.drivenc.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.escortradar.com/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.fdot.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.here.com/developer,2026-11-08T10:15:25.983495+00:00,HEAD,403,"Unconfirmed by HEAD; may be method restriction, access gate or transient failure; not proof link is invalid"
+https://www.ite.org/technical-resources/standards/cwz/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.maineturnpike.com/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.mass.gov/orgs/massachusetts-department-of-transportation,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.mdot.maryland.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.ncdot.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.nj.gov/transportation/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.ny.gov/work-zone-safety-awareness/automated-work-zone-speed-enforcement-program,2026-11-08T10:15:25.983495+00:00,HEAD,403,"Unconfirmed by HEAD; may be method restriction, access gate or transient failure; not proof link is invalid"
+https://www.nyc.gov/html/dot/html/about/datafeeds.shtml,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.openstreetmap.org/copyright,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.pa.gov/agencies/penndot/programs-and-doing-business/online-services/developer-resources-documentation-api,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/programs-and-doing-business/onlineservices/511pa_developers_corner-tcs.pdf,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.pa.gov/services/penndot/request-access-to-transportation-related-data-feeds,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.panynj.gov/alerts-advisories/advisories.html,2026-11-08T10:15:25.983495+00:00,HEAD,503,"Unconfirmed by HEAD; may be method restriction, access gate or transient failure; not proof link is invalid"
+https://www.scdot.org/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.thruway.ny.gov/travelers/,2026-11-08T10:15:25.983495+00:00,HEAD,403,"Unconfirmed by HEAD; may be method restriction, access gate or transient failure; not proof link is invalid"
+https://www.transportation.gov/av/data/wzdx,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.txdot.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.vdot.virginia.gov/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.waze.com/wazeforcities/,2026-11-08T10:15:25.983495+00:00,HEAD,200,HTTP observation only; not proof of dataset access or reuse rights
+https://www.511pa.com/cctv,2026-11-08T10:15:25.983495+00:00,GET,200,"Follow-up GET succeeded; public viewer only, not API or streaming permission"
+https://511pa.com/cctv,2026-11-08T10:15:25.983495+00:00,GET,200,"Follow-up GET succeeded; public viewer only, not API or streaming permission"
+https://chart.maryland.gov/,2026-11-08T10:15:25.983495+00:00,GET,200,"Follow-up GET succeeded; public viewer only, not API or streaming permission"

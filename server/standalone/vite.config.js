@@ -7,6 +7,7 @@ import { localMcpPlugin } from '../mcp/plugin.js';
 import { deckPlugin } from '../providers/deck.js';
 import { apiNotFoundPlugin } from './api-not-found.js';
 import { standaloneVoiceTools } from './voiceTools.js';
+import { enforcementPlugin } from '../enforcement/plugin.js';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 
@@ -22,7 +23,11 @@ export default defineConfig(({ command, mode }) => {
   process.env.GEV_EMBED_FRAME_ANCESTORS ??= "'self'";
   return createBrowserViteConfig({
     plugins: [
-      ...localProviderPlugins({ realtime: { tools: standaloneVoiceTools() } }),
+      enforcementPlugin(),
+      ...localProviderPlugins({
+        realtime: { tools: standaloneVoiceTools() },
+        routing: { endpoints: { car: process.env.GEV_ROUTING_CAR_URL } },
+      }),
       localMcpPlugin(),
       deckPlugin(),
       apiNotFoundPlugin(),

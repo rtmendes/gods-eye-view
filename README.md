@@ -28,6 +28,8 @@ _“pretty cool”_ — [Brendan Eich](https://x.com/BrendanEich/status/20945920
 
 </div>
 
+**Road-intelligence extension:** [PRD, technical specification, SOP and data-access applications](docs/road-intelligence/README.md).
+
 ---
 
 <div align="center">
@@ -55,6 +57,8 @@ Start with the included data sources, then add your own. Each layer is a separat
 ---
 
 ## 🎛️ What This Thing Does
+
+- **🚗 Highway map and Drive:** NY/NJ/PA I-80/I-95 enforcement inventory, source schedules, foreground GPS guidance and route replay. Open **DRIVE** in the toolbar. No paid key required; [setup, coverage and limitations](docs/DRIVING.md).
 
 - **🛩️ Cockpit view:** Ride inside a tracked flight — the camera holds the terrain under you all the way down.
 - **📡 Contacts:** A 250 km roster of everything near your target — step through live aircraft and drop into any cockpit.

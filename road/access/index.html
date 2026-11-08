@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#102e35" />
+    <title>Data access & state checklists · God's Eye View</title>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/road/">◉ GOD’S EYE VIEW <span>ROAD</span></a>
+      <nav aria-label="Main">
+        <a href="/road/route/">Route planner</a><a href="/road/">Coverage</a
+        ><a href="/road/fines/">Fines</a><a href="/road/sources/">Sources</a
+        ><a aria-current="page" href="/road/access/">Access checklists</a>
+      </nav>
+    </header>
+    <main>
+      <div class="eyebrow">DATA ACCESS / APPLICATIONS / LOCATION EVIDENCE</div>
+      <h1>A clear path.<br /><span>For every state.</span></h1>
+      <p class="lede">
+        Read the applications here, follow each agency’s steps, and inspect the
+        location records already published. Start with the East Coast, Texas and
+        California.
+      </p>
+      <div class="callout">
+        Checklist ticks are a personal planning aid saved in this browser. They
+        do not submit applications, activate APIs, verify approval or change
+        shared data. No authoritative live camera activation feed is connected.
+      </div>
+      <div id="access-metrics" class="metrics"></div>
+      <div class="access-tabs" role="group" aria-label="Access views">
+        <button data-view="states">State & location checklists</button
+        ><button data-view="checklist">Full application guide</button
+        ><button data-view="templates">Application drafts</button
+        ><button data-view="prd">PRD</button
+        ><button data-view="technical">Technical specification</button
+        ><button data-view="sop">SOP</button>
+      </div>
+      <section id="state-view">
+        <div class="section-top">
+          <label>State or district<select id="access-state"></select></label
+          ><button id="clear-access-progress" class="secondary">
+            Reset this browser’s checklist ticks
+          </button>
+        </div>
+        <p id="access-progress-note" role="status" class="muted">
+          Progress is local to this browser, not shared with the agency or other
+          devices. Do not enter credentials here.
+        </p>
+        <div id="state-summary"></div>
+        <h2>Apply, confirm rights, then connect.</h2>
+        <div id="common-steps" class="panel"></div>
+        <h2>Platforms and state-specific steps.</h2>
+        <div id="access-providers"></div>
+        <h2>Published location records.</h2>
+        <p class="muted">
+          Each accepted record for the selected state is shown below. Source
+          coordinates can represent a site or project reference, not a verified
+          equipment mount. Approval alone adds no new locations: an authorized
+          feed must be imported, reviewed and published.
+        </p>
+        <label
+          >Search this state’s locations<input
+            id="access-location-search"
+            type="search"
+            placeholder="Road, location title or source ID"
+        /></label>
+        <p id="access-location-count" role="status"></p>
+        <div id="access-locations"></div>
+      </section>
+      <section id="document-view" hidden>
+        <div class="section-top">
+          <p class="muted">
+            Rendered from the committed project documents. Drafts are not
+            submitted applications.
+          </p>
+          <button id="print-access" class="secondary">Print / save PDF</button>
+        </div>
+        <article id="access-document" class="panel rendered-document"></article>
+      </section>
+      <footer>
+        Access documentation reviewed November 8, 2026. Public links are not
+        licenses or evidence of camera operation.
+        <a
+          href="https://github.com/rtmendes/gods-eye-view/tree/main/docs/road-intelligence"
+          target="_blank"
+          rel="noopener noreferrer"
+          >All documentation on GitHub ↗</a
+        >
+      </footer>
+    </main>
+    <script type="module" src="/src/road/access.js"></script>
+  </body>
+</html>

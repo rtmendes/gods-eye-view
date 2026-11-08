@@ -1,0 +1,362 @@
+{
+  "generatedAt": "2026-11-06T17:12:45.707Z",
+  "states": [
+    {
+      "code": "AL",
+      "name": "Alabama",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "AK",
+      "name": "Alaska",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "AZ",
+      "name": "Arizona",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "AR",
+      "name": "Arkansas",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "CA",
+      "name": "California",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "CO",
+      "name": "Colorado",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "CT",
+      "name": "Connecticut",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "DE",
+      "name": "Delaware",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "DC",
+      "name": "District of Columbia",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "FL",
+      "name": "Florida",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "GA",
+      "name": "Georgia",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "HI",
+      "name": "Hawaii",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "ID",
+      "name": "Idaho",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "IL",
+      "name": "Illinois",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "IN",
+      "name": "Indiana",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "IA",
+      "name": "Iowa",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "KS",
+      "name": "Kansas",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "KY",
+      "name": "Kentucky",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "LA",
+      "name": "Louisiana",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "ME",
+      "name": "Maine",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "MD",
+      "name": "Maryland",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "MA",
+      "name": "Massachusetts",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "MI",
+      "name": "Michigan",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "MN",
+      "name": "Minnesota",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "MS",
+      "name": "Mississippi",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "MO",
+      "name": "Missouri",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "MT",
+      "name": "Montana",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "NE",
+      "name": "Nebraska",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "NV",
+      "name": "Nevada",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "NH",
+      "name": "New Hampshire",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "NJ",
+      "name": "New Jersey",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "NM",
+      "name": "New Mexico",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "NY",
+      "name": "New York",
+      "records": 7,
+      "monitoring": 7,
+      "physicalVerified": 0
+    },
+    {
+      "code": "NC",
+      "name": "North Carolina",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "ND",
+      "name": "North Dakota",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "OH",
+      "name": "Ohio",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "OK",
+      "name": "Oklahoma",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "OR",
+      "name": "Oregon",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "PA",
+      "name": "Pennsylvania",
+      "records": 299,
+      "monitoring": 42,
+      "physicalVerified": 0
+    },
+    {
+      "code": "RI",
+      "name": "Rhode Island",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "SC",
+      "name": "South Carolina",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "SD",
+      "name": "South Dakota",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "TN",
+      "name": "Tennessee",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "TX",
+      "name": "Texas",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "UT",
+      "name": "Utah",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "VT",
+      "name": "Vermont",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "VA",
+      "name": "Virginia",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "WA",
+      "name": "Washington",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "WV",
+      "name": "West Virginia",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "WI",
+      "name": "Wisconsin",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    },
+    {
+      "code": "WY",
+      "name": "Wyoming",
+      "records": 0,
+      "monitoring": 0,
+      "physicalVerified": 0
+    }
+  ]
+}

@@ -31,6 +31,7 @@ import { createInfrastructureLayers } from '../data/infrastructure.js';
 import { localGeoJsonServices } from './localGeojsonServices.js';
 import { createBhoteKoshiEventLayer } from '../data/bhoteKoshiEvent.js';
 import { createBhoteKoshiLocatorLayer } from '../data/bhoteKoshiLocator.js';
+import { createEnforcementLayer } from '../driving/layer.js';
 
 /**
  * Hardware-local layers are registered like any other but never enter share
@@ -38,6 +39,7 @@ import { createBhoteKoshiLocatorLayer } from '../data/bhoteKoshiLocator.js';
  */
 export const LOCAL_ONLY_LAYER_METADATA = Object.freeze([
   Object.freeze({ id: 'local-adsb', disposition: 'local-only' }),
+  Object.freeze({ id: 'corridor-enforcement', disposition: 'local-only' }),
 ]);
 
 /** Serialization metadata for every layer the application catalog constructs. */
@@ -134,6 +136,7 @@ export function createApplicationCatalog({
         createApplicationTransit({ surface, source: sources.transit }),
         createApplicationBikeshare({ source: sources.bikeshare }),
         createApplicationDirections({ source: sources.directions }),
+        createEnforcementLayer({ source: sources.enforcement }),
         createApplicationRecentImagery({ source: sources['recent-imagery'] }),
         vessels,
         installations,
